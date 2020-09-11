@@ -10,19 +10,19 @@ let control;
 let jugadas = 0;
 let minutos = 0,
   segundos = 0;
-$(function() {
+$(function () {
   let lv;
 
-  $("#resume").click(function() {
+  $("#resume").click(function () {
     $("#pauseFace").css({
       "z-index": 0,
       opacity: 0
     });
-    setTimeout(function() {
+    setTimeout(function () {
       cronometro();
     }, 300);
   });
-  $("#pause").click(function() {
+  $("#pause").click(function () {
     pause();
   });
   for (let i = 1; i <= 8; i++) {
@@ -34,18 +34,18 @@ $(function() {
   $(".aro").draggable({
     disabled: true,
     revert: true,
-    stop: function() {
+    stop: function () {
       jugadas++;
       $("#jugadas").html(jugadas);
     }
   });
-  $(".level-selector").click(function() {
+  $(".level-selector").click(function () {
     $("a").removeClass("active");
     $(this).addClass("active");
     lv = this.dataset.level;
   });
 
-  $("#start").click(function() {
+  $("#start").click(function () {
     if (!$("#username").val()) {
       alert("Por favor ingrese un nombre de usuario valido");
       return;
@@ -74,7 +74,7 @@ function validarVictoria(level, jugadas) {
   if (elementsT2 == aros || elementsT3 == aros) {
     clearInterval(control);
     $(".aro").draggable({ disabled: true });
-    setTimeout(function() {
+    setTimeout(function () {
       win(jugadas, level);
     }, 800);
   }
@@ -85,12 +85,12 @@ function win(jugadas, level) {
   if (minutos < 10) minutos = `0${minutos}`;
   if (segundos < 10) segundos = `0${segundos}`;
   $("#time").html(`${minutos}:${segundos} m`);
-  setTimeout(function() {
+  setTimeout(function () {
     $("#winFace").css("transform", "scale(1)");
   }, 400);
   let seconds = 5;
   let username = $("#username").val();
-  setInterval(function() {
+  setInterval(function () {
     if (!seconds) {
       $("#winFace").css("transform", "scale(0)");
       firebase
@@ -112,12 +112,12 @@ function win(jugadas, level) {
   }, 1000);
 }
 function startGame(level) {
-  $("#user").html("Hola "+ $("#username").val());
+  $("#user").html("Hola " + $("#username").val());
   $("#jugadas").html(jugadas);
   hideMainScreen();
 
   setTimeout(showGameScreen, 400);
-  setTimeout(function() {
+  setTimeout(function () {
     cronometro();
   }, 800);
   $("#tower2").data("data", {
@@ -133,14 +133,14 @@ function startGame(level) {
 
   let elements = $("#tower1").data("data").elements;
   elements[elements.length - 1].draggable({ disabled: false });
-  $(".tower").droppable({ 
+  $(".tower").droppable({
     drop(_, hoop) {
       let maxValue = $(this).data("data").maxValue;
       let dragValue = hoop.draggable.data("data").value;
 
       if (dragValue > maxValue) {
         hoop.draggable.draggable({ revert: false });
-        setTimeout(function() {
+        setTimeout(function () {
           hoop.draggable.draggable({ revert: true });
         }, 400);
 
@@ -179,7 +179,7 @@ function startGame(level) {
         top,
         transition: ".4s"
       });
-      setTimeout(function() {
+      setTimeout(function () {
         hoop.draggable.css({ transition: "0s" });
         validarVictoria(level, jugadas);
       }, 400);
@@ -197,7 +197,7 @@ function cronometro() {
   let txtM = minutos < 10 ? `0${minutos}` : `${minutos}`;
   $("#segundos").html(txtS);
   $("#minutos").html(txtM);
-  control = setTimeout(function() {
+  control = setTimeout(function () {
     cronometro();
   }, 1000);
 }
