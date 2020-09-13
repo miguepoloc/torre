@@ -10,20 +10,27 @@
 </head>
 
 <body>
+	<!-- Sección principal  -->
 	<div id="mainFace">
 		<h1>Torres de Hanoi</h1>
+		<!-- Agregar el nombre de Usuario -->
 		<input type="text" id="username" name="username" placeholder="NOMBRE DE USUARIO">
-		<p>¿En qué nivel vas a jugar?</p>
+		<!-- Seleccionar con cuántos aros se jugará -->
+		<p>¿Con cuántos aros deseas jugar?</p>
 		<ul>
-			<li><a href="#" class="btn level-selector" data-level="easy">Fácil</a></li>
-			<li><a href="#" class="btn level-selector" data-level="medium">Medio</a></li>
-			<li><a href="#" class="btn level-selector" data-level="hard">Difícil</a></li>
+			<li><a href="#" class="btn level-selector" data-level="easy">3</a></li>
+			<li><a href="#" class="btn level-selector" data-level="medium">6</a></li>
+			<li><a href="#" class="btn level-selector" data-level="hard">8</a></li>
 		</ul>
-		<a href="#" class="btn start" id="start">START</a>
+		<!-- Botón de inicio -->
+		<a href="#" class="btn start" id="start">INICIO</a>
 	</div>
+
+	<!-- Juego -->
 	<div id="game">
 		<div id="bg"></div>
 		<div id="juego">
+			<!-- Todos los aros -->
 			<div class="aro" id="drag1"></div>
 			<div class="aro" id="drag2"></div>
 			<div class="aro" id="drag3"></div>
@@ -32,6 +39,7 @@
 			<div class="aro" id="drag6"></div>
 			<div class="aro" id="drag7"></div>
 			<div class="aro" id="drag8"></div>
+			<!-- Todas las torres -->
 			<div class="tower" id="tower1">
 				<div class="torre"></div>
 			</div>
@@ -43,36 +51,55 @@
 			</div>
 		</div>
 
+		<!-- Muestra el nombre del usuario  -->
 		<h2 id="user"></h2>
+		<!-- Muestra los puntos que llevas -->
 		<div class="points">
 			<div class="datos">
+				<!-- Muestra el número de movimientos -->
 				<p>Numero de jugadas: <span id="jugadas"></span></p>
+				<!-- Muestra el tiempo desde que se dió inicio -->
 				<p>Tiempo: <span id="minutos">00</span>:<span id="segundos">00</span></p>
 			</div>
+			<!-- Control de pausa y reinicio -->
 			<div class="controls">
-				<a href="#" class="game-btn" id="pause">Pause</a>
+				<!-- Botón de pausa -->
+				<a href="#" class="game-btn" id="pause">Pausa</a>
+				<!-- Botón de reinicio -->
 				<a href="index.html" class="game-btn" id="restart">Restart</a>
 			</div>
 		</div>
 	</div>
+
+
+	<!-- Pantalla de juego pausado -->
 	<div id="pauseFace">
 		<h2>Juego Pausado</h2>
+		<!-- Botón de continuar con el juego -->
 		<a href="#" class="game-btn" id="resume">Continuar</a>
 	</div>
+
+	<!-- Pantalla de ganador -->
 	<div id="winFace">
 		<h2>¡Felicitaciones!</h2>
+		<!-- Muestra los resultados -->
 		<div class="result">
+			<!-- Muestra el tiempo que se tardó en resolver el juego -->
 			<div class="tiempo">
 				<h3>Tiempo</h3>
 				<p id="time"></p>
 			</div>
+			<!-- Muestra el número de movimientos que realizó -->
 			<div class="jugadas">
 				<h3>Jugadas</h3>
 				<p id="moves"></p>
 			</div>
 		</div>
+		<!-- Muestra el tiempo que tardará en mostrar los resultados globales -->
 		<p class="timer">La pantalla de resultados se mostrará en <span id="seconds"></span></p>
 	</div>
+
+	<!-- Muestra la tabla de ranking -->
 	<div id="rankingFace" class="ranking-face">
 		<section class="resultados">
 			<h1>Resultados nivel <span id="resultLevel"></span></h1>
@@ -93,7 +120,8 @@
 	</div>
 	<script type="text/javascript" src="lib/jquery.js"></script>
 	<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 	<script>

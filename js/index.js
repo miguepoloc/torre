@@ -1,3 +1,4 @@
+// Importa elementos de otro js
 import {
   getDraggableElements,
   hideMainScreen,
@@ -6,11 +7,18 @@ import {
 } from "./utils.js";
 import { hoopsPerLevel } from "./constants.js";
 
+// Variable de control
 let control;
+// Número de jugadas
 let jugadas = 0;
-let minutos = 0,
-  segundos = 0;
+// Minutos transcurridos
+let minutos = 0
+// Segundos transcurridos
+let segundos = 0;
+
+
 $(function () {
+  // Nivel seleccionado
   let lv;
 
   $("#resume").click(function () {
@@ -71,7 +79,7 @@ function validarVictoria(level, jugadas) {
   else aros = 8;
   const elementsT2 = $("#tower2").data("data").elements.length;
   const elementsT3 = $("#tower3").data("data").elements.length;
-  if (elementsT2 == aros || elementsT3 == aros) {
+  if (elementsT3 == aros) {
     clearInterval(control);
     $(".aro").draggable({ disabled: true });
     setTimeout(function () {
