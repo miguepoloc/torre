@@ -7,6 +7,11 @@
 	<title>Torre</title>
 	<link rel="stylesheet" type="text/css" href="styles/estilos.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.min.css" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -14,18 +19,35 @@
 	<div id="mainFace">
 		<h1>Torres de Hanoi</h1>
 		<!-- Agregar el nombre de Usuario -->
-		<input type="text" id="username" name="username" placeholder="NOMBRE DE USUARIO">
+		<form class="needs-validation" novalidate>
+			<div class="form-row">
+				<div class="mb-6">
+					<input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required>
+				</div>
+			</div>
+		</form>
+		<!-- <input type="text" id="username" name="username" placeholder="NOMBRE DE USUARIO"> -->
 		<!-- Seleccionar con cuántos aros se jugará -->
 		<p>¿Con cuántos aros deseas jugar?</p>
-		<ul>
-			<li><a href="#" class="btn level-selector" data-level="easy">3</a></li>
-			<li><a href="#" class="btn level-selector" data-level="medium">6</a></li>
-			<li><a href="#" class="btn level-selector" data-level="hard">8</a></li>
-		</ul>
-		<!-- Botón de inicio -->
-		<a href="#" class="btn start" id="start">INICIO</a>
+		<form class="was-validated">
+			<div class="form-group">
+				<select class="custom-select" required id="select_aros">
+					<option value="">Selecciona el número de aros</option>
+					<option value="uno">Uno (1)</option>
+					<option value="dos">Dos (2)</option>
+					<option value="tres">Tres (3)</option>
+					<option value="cuatro">Cuatro (4)</option>
+					<option value="cinco">Cinco (5)</option>
+					<option value="seis">Seis (6)</option>
+					<option value="siete">Siete (7)</option>
+					<option value="ocho">Ocho (8)</option>
+				</select>
+				<div class="invalid-feedback">Por favor selecciona un número</div>
+			</div>
+			<!-- Botón de inicio -->
+			<a class="btn btn-primary" type="submit" id="start">INICIO</a>
+		</form>
 	</div>
-
 	<!-- Juego -->
 	<div id="game">
 		<div id="bg"></div>
@@ -95,41 +117,52 @@
 				<p id="moves"></p>
 			</div>
 		</div>
-		<!-- Muestra el tiempo que tardará en mostrar los resultados globales -->
-		<p class="timer">La pantalla de resultados se mostrará en <span id="seconds"></span></p>
+		<a href="index.html" class="btn start">Volver a Jugar</a>
 	</div>
 
-	<!-- Muestra la tabla de ranking -->
-	<div id="rankingFace" class="ranking-face">
-		<section class="resultados">
-			<h1>Resultados nivel <span id="resultLevel"></span></h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Posicion</th>
-						<th>Foto</th>
-						<th>Nombre de Usuario</th>
-						<th>Tiempo</th>
-						<th>N° de Jugadas</th>
-					</tr>
-				</thead>
-				<tbody id="rankingTable"></tbody>
-			</table>
-			<a href="index.html" class="btn start">Volver a Jugar</a>
-		</section>
-	</div>
 	<script type="text/javascript" src="lib/jquery.js"></script>
 	<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+
+
+
+
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
+
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		var firebaseConfig = {
+			apiKey: "AIzaSyA3gNnDJMZomlyhLeCgoea83IWHNRUUgwg",
+			authDomain: "torre-migue.firebaseapp.com",
+			databaseURL: "https://torre-migue.firebaseio.com",
+			projectId: "torre-migue",
+			storageBucket: "torre-migue.appspot.com",
+			messagingSenderId: "240479977873",
+			appId: "1:240479977873:web:0d109f6ec654f2428eda30",
+			measurementId: "G-5SYGNHVK6Z"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		firebase.analytics();
+	</script>
+
 	<script>
 		// Initialize Firebase
 		let fr
 		let cropper
-		let userImage = 'user.jpg'
-		let imageCanvas = $('#canvas')[0]
 		var config = {
 			apiKey: "AIzaSyBY6A37cLRnlvmxu_f9QZa1O4f2Hm_onfk",
 			authDomain: "hanoitowers-6ef4f.firebaseapp.com",
@@ -140,51 +173,26 @@
 		}
 		firebase.initializeApp(config)
 		const levelsInSpanish = {
-			easy: 'Fácil',
-			medium: 'Medio',
-			hard: 'Difícil'
+			uno: 'Uno',
+			dos: 'Dos',
+			tres: 'Tres',
+			cuatro: 'Cuatro',
+			cinco: 'Cinco',
+			seis: 'Seis',
+			siete: 'Siete',
+			ocho: 'Ocho'
 		}
 		let dataLevels = {
-			easy: [],
-			medium: [],
-			hard: []
+			uno: [],
+			dos: [],
+			tres: [],
+			cuatro: [],
+			cinco: [],
+			seis: [],
+			siete: [],
+			ocho: []
 		}
 		const levels = Object.keys(dataLevels)
-		$('#photoPicker').click(e => {
-			e.preventDefault()
-			$('#photo').click()
-		})
-		$('#photo').on('change', e => {
-			if ($('#photo')[0].files.length) {
-				const kilobyteSize = parseInt($('#photo')[0].files[0].size / 1024);
-				if (kilobyteSize < 160) {
-					fr = new FileReader()
-					fr.readAsDataURL($('#photo')[0].files[0])
-					fr.onload = e => {
-						imageCanvas.src = fr.result
-						cropper = new Cropper(imageCanvas, {
-							aspectRatio: 1 / 1,
-							autoCropArea: 1,
-							modal: false,
-							viewMode: 2,
-							dragMode: 'move',
-							background: false
-						})
-						$('#imageModal').addClass('show')
-						$('.modal').addClass('show')
-					}
-				} else {
-					alert('Por favor seleccione una foto de menos de 150 kb')
-				}
-			}
-		})
-		$('#save').click(e => {
-			e.preventDefault()
-			$('#imageModal').removeClass('show')
-			$('.modal').removeClass('show')
-			userImage = cropper.getCroppedCanvas().toDataURL('image/jpeg')
-			cropper.destroy()
-		})
 		function orderArray(arr) {
 			let pos = 1, counter = 0
 			arr.sort(compare)

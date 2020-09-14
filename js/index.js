@@ -19,7 +19,7 @@ let segundos = 0;
 
 $(function () {
   // Nivel seleccionado
-  let lv;
+  let lv = "";
 
   $("#resume").click(function () {
     $("#pauseFace").css({
@@ -47,11 +47,28 @@ $(function () {
       $("#jugadas").html(jugadas);
     }
   });
-  $(".level-selector").click(function () {
-    $("a").removeClass("active");
-    $(this).addClass("active");
-    lv = this.dataset.level;
-  });
+  // $(".level-selector").click(function () {
+  //   $("a").removeClass("active");
+  //   $(this).addClass("active");
+  //   lv = this.dataset.level;
+  // });
+
+  // Seleccionar el nivel del juego
+  // Obtiene el valor del elemento Select_aros
+  var select_aros = document.getElementById('select_aros');
+  // Variable de selección
+  var selectedOption;
+  // Variable que guarda la cantidad de aros seleccionados
+  var aros_seleccionados = "";
+
+  // Cuando cambie de valor
+  select_aros.addEventListener('change',
+    function () {
+      selectedOption = this.options[select_aros.selectedIndex];
+      lv = selectedOption.value;
+      console.log(lv);
+    }
+  );
 
   $("#start").click(function () {
     if (!$("#username").val()) {
@@ -74,8 +91,13 @@ $(function () {
 
 function validarVictoria(level, jugadas) {
   let aros;
-  if (level == "easy") aros = 3;
-  else if (level == "medium") aros = 5;
+  if (level == "uno") aros = 1;
+  else if (level == "dos") aros = 2;
+  else if (level == "tres") aros = 3;
+  else if (level == "cuatro") aros = 4;
+  else if (level == "cinco") aros = 5;
+  else if (level == "seis") aros = 6;
+  else if (level == "siete") aros = 7;
   else aros = 8;
   const elementsT2 = $("#tower2").data("data").elements.length;
   const elementsT3 = $("#tower3").data("data").elements.length;
@@ -96,28 +118,7 @@ function win(jugadas, level) {
   setTimeout(function () {
     $("#winFace").css("transform", "scale(1)");
   }, 400);
-  let seconds = 5;
-  let username = $("#username").val();
-  setInterval(function () {
-    if (!seconds) {
-      $("#winFace").css("transform", "scale(0)");
-      firebase
-        .database()
-        .ref(level)
-        .push({
-          username,
-          minutos,
-          segundos,
-          jugadas,
-          userImage
-        });
-      setTimeout(() => {
-        $("#rankingFace").css("transform", "scale(1)");
-      }, 300);
-    }
-    $("#seconds").html(seconds);
-    seconds--;
-  }, 1000);
+
 }
 function startGame(level) {
   $("#user").html("Hola " + $("#username").val());
