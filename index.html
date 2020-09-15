@@ -129,20 +129,11 @@
 	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 
 
-
-
-
-	<!-- The core Firebase JS SDK is always required and must be listed first -->
-	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
-
-	<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-	<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
-
 	<script>
-		// Your web app's Firebase configuration
-		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-		var firebaseConfig = {
+		// Initialize Firebase
+		let fr
+		let cropper
+		var config = {
 			apiKey: "AIzaSyA3gNnDJMZomlyhLeCgoea83IWHNRUUgwg",
 			authDomain: "torre-migue.firebaseapp.com",
 			databaseURL: "https://torre-migue.firebaseio.com",
@@ -152,23 +143,6 @@
 			appId: "1:240479977873:web:0d109f6ec654f2428eda30",
 			measurementId: "G-5SYGNHVK6Z"
 		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		firebase.analytics();
-	</script>
-
-	<script>
-		// Initialize Firebase
-		let fr
-		let cropper
-		var config = {
-			apiKey: "AIzaSyBY6A37cLRnlvmxu_f9QZa1O4f2Hm_onfk",
-			authDomain: "hanoitowers-6ef4f.firebaseapp.com",
-			databaseURL: "https://hanoitowers-6ef4f.firebaseio.com",
-			projectId: "hanoitowers-6ef4f",
-			storageBucket: "",
-			messagingSenderId: "644478568762"
-		}
 		firebase.initializeApp(config)
 		const levelsInSpanish = {
 			uno: 'Uno',
@@ -257,6 +231,7 @@
 		}
 	</script>
 	<script type="module" src="js/index.js"></script>
+	<script type="module" src="js/controlador.js"></script>
 </body>
 
 </html>
