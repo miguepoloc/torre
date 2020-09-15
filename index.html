@@ -19,14 +19,12 @@
 	<div id="mainFace">
 		<h1>Torres de Hanoi</h1>
 		<!-- Agregar el nombre de Usuario -->
-		<form class="needs-validation" novalidate>
+		<form class="was-validated">
 			<div class="form-row">
-				<div class="mb-6">
-					<input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required>
-				</div>
+				<input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required>
 			</div>
 		</form>
-		<!-- <input type="text" id="username" name="username" placeholder="NOMBRE DE USUARIO"> -->
+		<br>
 		<!-- Seleccionar con cuántos aros se jugará -->
 		<p>¿Con cuántos aros deseas jugar?</p>
 		<form class="was-validated">
@@ -42,7 +40,6 @@
 					<option value="siete">Siete (7)</option>
 					<option value="ocho">Ocho (8)</option>
 				</select>
-				<div class="invalid-feedback">Por favor selecciona un número</div>
 			</div>
 			<!-- Botón de inicio -->
 			<a class="btn btn-primary" type="submit" id="start">INICIO</a>
@@ -86,9 +83,10 @@
 			<!-- Control de pausa y reinicio -->
 			<div class="controls">
 				<!-- Botón de pausa -->
-				<a href="#" class="game-btn" id="pause">Pausa</a>
+				<a type="button" class="btn btn-success" id="pause">Pausa</a>
+				<br>
 				<!-- Botón de reinicio -->
-				<a href="index.html" class="game-btn" id="restart">Restart</a>
+				<a href="index.html" type="button" class="btn btn-danger" id="restart">Reiniciar</a>
 			</div>
 		</div>
 	</div>
@@ -98,7 +96,7 @@
 	<div id="pauseFace">
 		<h2>Juego Pausado</h2>
 		<!-- Botón de continuar con el juego -->
-		<a href="#" class="game-btn" id="resume">Continuar</a>
+		<a type="button" class="btn btn-success" id="resume">Continuar</a>
 	</div>
 
 	<!-- Pantalla de ganador -->

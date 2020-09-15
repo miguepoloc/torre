@@ -18,7 +18,7 @@ let segundos = 0;
 
 
 $(function () {
-  // Nivel seleccionado
+  // Variable que guarda la cantidad de aros seleccionados
   let lv = "";
 
   $("#resume").click(function () {
@@ -47,19 +47,12 @@ $(function () {
       $("#jugadas").html(jugadas);
     }
   });
-  // $(".level-selector").click(function () {
-  //   $("a").removeClass("active");
-  //   $(this).addClass("active");
-  //   lv = this.dataset.level;
-  // });
 
   // Seleccionar el nivel del juego
   // Obtiene el valor del elemento Select_aros
   var select_aros = document.getElementById('select_aros');
   // Variable de selección
   var selectedOption;
-  // Variable que guarda la cantidad de aros seleccionados
-  var aros_seleccionados = "";
 
   // Cuando cambie de valor
   select_aros.addEventListener('change',
@@ -117,7 +110,7 @@ function win(jugadas, level) {
   $("#time").html(`${minutos}:${segundos} m`);
   setTimeout(function () {
     $("#winFace").css("transform", "scale(1)");
-  }, 400);
+  });
 
 }
 function startGame(level) {
