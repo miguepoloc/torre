@@ -23,15 +23,20 @@ const leftValues = {
 
 export const getHoopLeft = (position, hoodValue) => `${leftValues[position] + hoodValue}vw`;
 
+// Función que muestra la página del juego
 export const showGameScreen = () => {
   $("#game").css({
+    // Coloca la sección con id game en la escala 1, o sea, adelante
     transform: "scale(1)",
     "border-radius": 0
   })
 }
 
+// Función que oculta la página de inicio
 export const hideMainScreen = () => {
+  // Coge el id de la página de inicio
   $("#mainFace").css({
+    //Lo manda para atrás
     transform: "scale(0)",
     "border-radius": "50%"
   });
