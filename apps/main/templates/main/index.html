@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,14 +6,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Torre</title>
-	<link rel="stylesheet" type="text/css" href="styles/estilos.css">
+    <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
+
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.min.css" rel="stylesheet">
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-	<link rel="shortcut icon" type="image/png" href="img/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/logo.png' %}"/>
 
 </head>
 
@@ -120,8 +122,9 @@
 		<a href="index.html" type="button" class="btn btn-info">Volver a Jugar</a>
 	</div>
 
-	<script type="text/javascript" src="lib/jquery.js"></script>
-	<script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="{% static 'lib/jquery.js' %}"></script>
+	<script type="text/javascript" src="{% static 'lib/jquery-ui.min.js' %}"></script>
+
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 		crossorigin="anonymous"></script>
@@ -129,7 +132,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.min.js"></script>
 	
-	<script type="module" src="js/index.js"></script>
+	<script type="module" src="{% static 'js/index.js' %}"></script>
 </body>
 
 </html>

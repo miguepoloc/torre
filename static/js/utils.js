@@ -32,7 +32,6 @@ export const showGameScreen = () => {
   })
 }
 
-// Función que oculta la página de inicio
 export const hideMainScreen = () => {
   // Coge el id de la página de inicio
   $("#mainFace").css({
