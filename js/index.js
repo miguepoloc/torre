@@ -66,6 +66,9 @@ $(function () {
       jugadas++;
       // Muestra el número de jugadas
       $("#jugadas").html(jugadas);
+
+      controlador();
+
     },
     containment: "parent"
   });
@@ -193,7 +196,6 @@ function startGame(level) {
   $(".tower").droppable({
     // Función
     drop(_, hoop) {
-      console.log(hoop);
       // Obtiene el máximo valor de aro en la torre sobre la que se posiciona el aro que se tiene seleccionado
       let maxValue = $(this).data("data").maxValue;
       // Obtiene el número del disco que se mueve
@@ -269,7 +271,6 @@ function startGame(level) {
       setTimeout(function () {
         hoop.draggable.css({ transition: "0s" });
         validarVictoria(level, jugadas);
-        controlador();
       }, 400);
     }
   });
@@ -277,6 +278,31 @@ function startGame(level) {
 
 // Función encargada de contar el tiempo
 function cronometro() {
+  // Incrementa la cuenta de segundos
+  segundos++;
+  // Si han paso 60 segundos
+  if (segundos == 60) {
+    // Incrementa la cuenta de minutos
+    minutos++;
+    // Establece en 0 los segundos
+    segundos = 0;
+  }
+  // Función de los segundos
+  let txtS = segundos < 10 ? `0${segundos}` : `${segundos}`;
+  // Función de los minutos
+  let txtM = minutos < 10 ? `0${minutos}` : `${minutos}`;
+  // Muestra los segundos
+  $("#segundos").html(txtS);
+  // Muestra los minutos
+  $("#minutos").html(txtM);
+  // Llama a la función cronómetro cada 1000 ms (1s)
+  control = setTimeout(function () {
+    cronometro();
+  }, 1000);
+}
+
+// Función encargada de contar el tiempo entre jugadas
+function cronometro_control() {
   // Incrementa la cuenta de segundos
   segundos++;
   // Si han paso 60 segundos
@@ -315,6 +341,53 @@ function pause() {
 
 
 function controlador() {
-  // let cual = $("#tower3").data("data").elements[0].context.id;
-  // console.log(cual)
+  let vtorre1 = [];
+  let vtorre2 = [];
+  let vtorre3 = [];
+  let vtorres = [];
+  let cantidad1 = $("#tower1").data("data").elements.length;
+  let cantidad2 = $("#tower2").data("data").elements.length;
+  let cantidad3 = $("#tower3").data("data").elements.length;
+
+
+  for (let index = 0; index < cantidad1; index++) {
+    if ($("#tower1").data("data").elements[index] != null) {
+      let cual = $("#tower1").data("data").elements[index].selector[5];
+      if (cual > 0) {
+        vtorre1.push(cual + "A");
+      }
+      else {
+        let cual2 = $("#tower1").data("data").elements[index].context.id[4];
+        if (cual2 > 0) {
+          vtorre1.push(cual2 + "A");
+        }
+      }
+    }
+  }
+
+  for (let index = 0; index < cantidad2; index++) {
+    if ($("#tower2").data("data").elements[index] != null) {
+      let cual = $("#tower2").data("data").elements[index].context.id[4];
+      vtorre2.push(cual + "B");
+    }
+  }
+
+  for (let index = 0; index < cantidad3; index++) {
+    if ($("#tower3").data("data").elements[index] != null) {
+      let cual = $("#tower3").data("data").elements[index].context.id[4];
+      vtorre3.push(cual + "C");
+    }
+  }
+
+  if (vtorre1.length > 0) {
+    vtorres = vtorre1;
+  }
+  if (vtorre2.length > 0) {
+    vtorres = vtorres + "," + vtorre2;
+  }
+  if (vtorre3.length > 0) {
+    vtorres = vtorres + "," + vtorre3;
+  }
+
+  console.log(vtorres);
 }
