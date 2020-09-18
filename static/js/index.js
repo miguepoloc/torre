@@ -1,11 +1,3 @@
-// Importa elementos de otro js
-// import {
-//   getDraggableElements,
-//   hideMainScreen,
-//   showGameScreen,
-//   getHoopLeft
-// } from "./utils.js";
-
 
 function getDraggableElements(limit) {
   // limit es el número de aros escogidos por el usuario
