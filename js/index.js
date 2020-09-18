@@ -7,15 +7,20 @@ import {
 } from "./utils.js";
 import { hoopsPerLevel } from "./constants.js";
 
-// Variable de control
+// Variable de control de tiempo
 let control;
+// Variable de control de tiempo
+let control_cro;
 // Número de jugadas
 let jugadas = 0;
 // Minutos transcurridos
 let minutos = 0
 // Segundos transcurridos
 let segundos = 0;
-
+// Segundos transcurridos entre jugadas
+let segundos_jugadas = 0;
+// Objeto que guarda todo
+var objeto_control = new Object();
 
 $(function () {
   // Variable que guarda la cantidad de aros seleccionados
@@ -34,6 +39,7 @@ $(function () {
     setTimeout(function () {
       // Continua la cuenta del cronómetro
       cronometro();
+      cronometro_control();
     }, 100);
   });
 
@@ -66,8 +72,8 @@ $(function () {
       jugadas++;
       // Muestra el número de jugadas
       $("#jugadas").html(jugadas);
-
       controlador();
+      segundos_jugadas = 0;
 
     },
     containment: "parent"
@@ -109,7 +115,23 @@ $(function () {
       // Donde se le pasa el número de aros escogidos por el usuario
       elements: getDraggableElements(numberOfHoops)
     });
-    createListener(lv);
+
+    let na = "";
+    for (let w = numberOfHoops; w >= 1; w--) {
+      if (w != numberOfHoops) {
+        na = w.toString() + "A," + na;
+      }
+      else{
+        na = w.toString() + "A" + na;
+      }
+    }
+    objeto_control = {
+      jugada: [0],
+      posicion: [na],
+      tiempo: [0]
+    }
+
+    // createListener(lv);
     startGame(lv);
   });
 });
@@ -174,6 +196,7 @@ function startGame(level) {
   // Llama a la función cronómetro 0.8 s después de dar start
   setTimeout(function () {
     cronometro();
+    cronometro_control();
   }, 800);
   // Coloca la torre 2 en el centro
   $("#tower2").data("data", {
@@ -304,25 +327,10 @@ function cronometro() {
 // Función encargada de contar el tiempo entre jugadas
 function cronometro_control() {
   // Incrementa la cuenta de segundos
-  segundos++;
-  // Si han paso 60 segundos
-  if (segundos == 60) {
-    // Incrementa la cuenta de minutos
-    minutos++;
-    // Establece en 0 los segundos
-    segundos = 0;
-  }
-  // Función de los segundos
-  let txtS = segundos < 10 ? `0${segundos}` : `${segundos}`;
-  // Función de los minutos
-  let txtM = minutos < 10 ? `0${minutos}` : `${minutos}`;
-  // Muestra los segundos
-  $("#segundos").html(txtS);
-  // Muestra los minutos
-  $("#minutos").html(txtM);
+  segundos_jugadas++;
   // Llama a la función cronómetro cada 1000 ms (1s)
-  control = setTimeout(function () {
-    cronometro();
+  control_cro = setTimeout(function () {
+    cronometro_control();
   }, 1000);
 }
 
@@ -330,6 +338,7 @@ function cronometro_control() {
 function pause() {
   // Evita que la función setTimeout se ejecute
   clearTimeout(control);
+  clearTimeout(control_cro);
   // Estilo de la interface de pausa 
   $("#pauseFace").css({
     // Se coloca la interface de pausa arriba de todo
@@ -380,7 +389,7 @@ function controlador() {
   }
 
   if (vtorre1.length > 0) {
-    vtorres = vtorre1;
+    vtorres = vtorre1.toString();
   }
   if (vtorre2.length > 0) {
     vtorres = vtorres + "," + vtorre2;
@@ -389,5 +398,9 @@ function controlador() {
     vtorres = vtorres + "," + vtorre3;
   }
 
-  console.log(vtorres);
+  objeto_control.jugada.push(jugadas);
+  objeto_control.posicion.push(vtorres);
+  objeto_control.tiempo.push(segundos_jugadas);
+
+  console.log(objeto_control);
 }
