@@ -1,11 +1,71 @@
-// Importa elementos de otro js
-import {
-  getDraggableElements,
-  hideMainScreen,
-  showGameScreen,
-  getHoopLeft
-} from "./utils.js";
-import { hoopsPerLevel } from "./constants.js";
+
+function getDraggableElements(limit) {
+  // limit es el número de aros escogidos por el usuario
+  // crea la variable elements
+  let elements = [];
+  // For que recorre 8 pasos
+  for (let i = 1; i <= 8; i++) {
+    // Asigna a la variable element el drag #
+    let element = $(`#drag${i}`);
+    // Si i es menor o igual al límite añade a la lista de elementos el elemento
+    if (i <= limit) elements.push(element);
+    // Sino, oculta el elemento
+    else element.css("display", "none");
+  }
+  // Regrese el valor de la lista
+  return elements;
+}
+
+// Función que oculta la página de inicio
+function hideMainScreen() {
+  // Coge el id de la página de inicio
+  $("#mainFace").css({
+    //Lo manda para atrás
+    transform: "scale(0)",
+    "border-radius": "50%"
+  });
+}
+
+const leftValues = {
+  center: 30,
+  left: 3,
+  right: 56.7
+}
+
+const getHoopLeft = (position, hoodValue) => `${leftValues[position] + hoodValue}vw`;
+
+function showGameScreen() {
+  $("#game").css({
+    // Coloca la sección con id game en la escala 1, o sea, adelante
+    transform: "scale(1)",
+    "border-radius": 0
+  })
+}
+
+var hoopsPerLevel = {
+  uno: 1,
+  dos: 2,
+  tres: 3,
+  cuatro: 4,
+  cinco: 5,
+  seis: 6,
+  siete: 7,
+  ocho: 8
+};
+
+// Token necesario para que funcione el método POST
+var csrftoken = Cookies.get('csrftoken');
+function csrfSafeMethod(method) {
+  // these HTTP methods do not require CSRF protection
+  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+  beforeSend: function (xhr, settings) {
+    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+      xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    }
+  }
+});
 
 // Variable de control de tiempo
 let control;
@@ -21,6 +81,7 @@ let segundos = 0;
 let segundos_jugadas = 0;
 // Objeto que guarda todo
 var objeto_control = new Object();
+var total_time = 0;
 
 $(function () {
   // Variable que guarda la cantidad de aros seleccionados
@@ -121,7 +182,7 @@ $(function () {
       if (w != numberOfHoops) {
         na = w.toString() + "A," + na;
       }
-      else{
+      else {
         na = w.toString() + "A" + na;
       }
     }
@@ -314,6 +375,7 @@ function cronometro() {
   let txtS = segundos < 10 ? `0${segundos}` : `${segundos}`;
   // Función de los minutos
   let txtM = minutos < 10 ? `0${minutos}` : `${minutos}`;
+  total_time = txtM + ":" + txtS;
   // Muestra los segundos
   $("#segundos").html(txtS);
   // Muestra los minutos
@@ -402,5 +464,27 @@ function controlador() {
   objeto_control.posicion.push(vtorres);
   objeto_control.tiempo.push(segundos_jugadas);
 
+  $.ajax({
+    type: "POST",
+    url: "/api/jugador/",
+    data: {
+      "nombre": $("#username").val(),
+      "fecha": "",
+      "jugada": jugadas,
+      "tiempo_entre_jugada": segundos_jugadas,
+      "posicion": vtorres,
+      "tiempo_total": total_time
+    }
+  });
+
+  // $.post("/api/jugador/", {
+  //   "nombre": $("#username").val(),
+  //   "fecha": "",
+  //   "jugada": jugadas,
+  //   "tiempo_entre_jugada": segundos_jugadas,
+  //   "posicion": vtorres,
+  //   "tiempo_total": total_time
+  // });
   console.log(objeto_control);
 }
+
