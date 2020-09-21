@@ -117,6 +117,50 @@ body {
 	transition: .4s;
 }
 
+#sentimientos {
+	z-index: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	transform: scale(1);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	opacity: 0;
+	transition: .4s;
+}
+
+.sentimiento-img {
+	height: 10%;
+	width: 10%;
+}
+
+/* HIDE RADIO */
+
+[type=radio] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* IMAGE STYLES */
+
+[type=radio]+img {
+	cursor: pointer;
+}
+
+/* CHECKED STYLES */
+
+[type=radio]:checked+img {
+	outline: 2px solid #38ad53;
+}
+
 #bg {
 	position: absolute;
 	z-index: 1;

@@ -26,6 +26,16 @@ function hideMainScreen() {
   });
 }
 
+// Función que oculta la página de sentimientos
+function hideSentimientosScreen() {
+  // Coge el id de la página
+  $("#sentimientos").css({
+    //Lo manda para atrás
+    transform: "scale(0)",
+    "border-radius": "50%"
+  });
+}
+
 const leftValues = {
   center: 30,
   left: 3,
@@ -154,6 +164,14 @@ $(function () {
     }
   );
 
+  $("#start2").click(function () {
+    if (!$("#customControlValidation2").val()) {
+      alert("Por favor selecciona un sentimiento");
+      return;
+    }
+    startGame(lv);
+  });
+
   // Cuando se da click en el botón start
   $("#start").click(function () {
     // Si el nombre de usuario no ha sido ingresado
@@ -193,9 +211,22 @@ $(function () {
     }
 
     // createListener(lv);
-    startGame(lv);
+    sx(lv);
   });
 });
+
+function sx(lv) {
+  hideMainScreen();
+  $("#sentimientos").css({
+    // Coloca la sección con id game en la escala 1, o sea, adelante
+    transform: "scale(1)",
+    "border-radius": 0,
+    // Se coloca la interface de pausa arriba de todo
+    "z-index": 1000,
+    // Lo pone visible
+    opacity: 1
+  });
+}
 
 // Función para saber que ganó
 function validarVictoria(level, jugadas) {
@@ -251,7 +282,7 @@ function startGame(level) {
   // Muestra el número de jugadas
   $("#jugadas").html(jugadas);
   // Oculta la página principal
-  hideMainScreen();
+  hideSentimientosScreen();
   // Inicia el juego 400 ms después de dar start
   setTimeout(showGameScreen, 400);
   // Llama a la función cronómetro 0.8 s después de dar start
@@ -476,15 +507,6 @@ function controlador() {
       "tiempo_total": total_time
     }
   });
-
-  // $.post("/api/jugador/", {
-  //   "nombre": $("#username").val(),
-  //   "fecha": "",
-  //   "jugada": jugadas,
-  //   "tiempo_entre_jugada": segundos_jugadas,
-  //   "posicion": vtorres,
-  //   "tiempo_total": total_time
-  // });
   console.log(objeto_control);
 }
 
