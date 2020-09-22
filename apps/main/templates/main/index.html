@@ -27,7 +27,7 @@
 	<!-- Sección principal  -->
 	<div id="mainFace">
 		<div id="principal">
-			<h1>Torres de Hanoi</h1>
+			<h1 style="margin-top: 20px;" id="titulo">Torres de Hanoi</h1>
 			<!-- Agregar el nombre de Usuario -->
 			<form class="was-validated">
 				<div class="form-row">
@@ -62,6 +62,7 @@
 							<input type="radio" class="custom-control-input" id="customControlValidation2"
 								name="radio-stacked" style="visibility: hidden;" required>
 							<img src="{% static 'img/feliz.png' %}" alt="triste" class="sentimiento-img">
+							<br>
 							<label for="customControlValidation2">Feliz</label>
 						</label>
 					</div>
@@ -79,6 +80,7 @@
 							<input type="radio" class="custom-control-input" id="customControlValidation2"
 								name="radio-stacked" style="visibility: hidden;" required>
 							<img src="{% static 'img/enojado.png' %}" alt="triste" class="sentimiento-img">
+							<br>
 							<label for="customControlValidation2">Enojado</label>
 						</label>
 					</div>
