@@ -1,4 +1,49 @@
 
+// Variables y constantes
+const leftValues = {
+  center: 30,
+  left: 3,
+  right: 56.7
+}
+
+const getHoopLeft = (position, hoodValue) => `${leftValues[position] + hoodValue}vw`;
+
+// Cantidad de aros por nivel
+var hoopsPerLevel = {
+  uno: 1,
+  dos: 2,
+  tres: 3,
+  cuatro: 4,
+  cinco: 5,
+  seis: 6,
+  siete: 7,
+  ocho: 8
+};
+
+// Variable de control de tiempo
+let control;
+// Variable de control de tiempo
+let control_cro;
+// Número de jugadas
+let jugadas = 0;
+// Minutos transcurridos
+let minutos = 0
+// Segundos transcurridos
+let segundos = 0;
+// Segundos transcurridos entre jugadas
+let segundos_jugadas = 0;
+// Objeto que guarda todo
+var objeto_control = new Object();
+var total_time = 0;
+var usuario;
+// Cantidad de sentimientos
+var cantidad_sentimientos = document.getElementsByName("sentimiento_name").length;
+var lista_sentimientos = [];
+var sentimiento_check;
+var ok_sentimiento = false;
+var sentimiento;
+
+// Obtener el número de aros
 function getDraggableElements(limit) {
   // limit es el número de aros escogidos por el usuario
   // crea la variable elements
@@ -16,6 +61,7 @@ function getDraggableElements(limit) {
   return elements;
 }
 
+
 // Función que oculta la página de inicio
 function hideMainScreen() {
   // Coge el id de la página de inicio
@@ -27,14 +73,7 @@ function hideMainScreen() {
 }
 
 
-const leftValues = {
-  center: 30,
-  left: 3,
-  right: 56.7
-}
-
-const getHoopLeft = (position, hoodValue) => `${leftValues[position] + hoodValue}vw`;
-
+// Muestra la pantalla del juego
 function showGameScreen() {
   $("#game").css({
     // Coloca la sección con id game en la escala 1, o sea, adelante
@@ -43,17 +82,7 @@ function showGameScreen() {
   })
 }
 
-var hoopsPerLevel = {
-  uno: 1,
-  dos: 2,
-  tres: 3,
-  cuatro: 4,
-  cinco: 5,
-  seis: 6,
-  siete: 7,
-  ocho: 8
-};
-
+// --------------- PARA EL MÉTODO POST -----------
 // Token necesario para que funcione el método POST
 var csrftoken = Cookies.get('csrftoken');
 function csrfSafeMethod(method) {
@@ -68,22 +97,8 @@ $.ajaxSetup({
   }
 });
 
-// Variable de control de tiempo
-let control;
-// Variable de control de tiempo
-let control_cro;
-// Número de jugadas
-let jugadas = 0;
-// Minutos transcurridos
-let minutos = 0
-// Segundos transcurridos
-let segundos = 0;
-// Segundos transcurridos entre jugadas
-let segundos_jugadas = 0;
-// Objeto que guarda todo
-var objeto_control = new Object();
-var total_time = 0;
 
+// Función principal
 $(function () {
   // Variable que guarda la cantidad de aros seleccionados
   let lv = "";
@@ -155,6 +170,17 @@ $(function () {
     }
   );
 
+  $('input[type=radio][name=sentimiento_name]').change(function () {
+    sentimiento = this.value;
+    for (let index = 0; index < cantidad_sentimientos; index++) {
+      sentimiento_check = document.getElementsByName("sentimiento_name")[index].checked
+      lista_sentimientos.push(sentimiento_check);
+    }
+    if (lista_sentimientos.includes(true)) {
+      ok_sentimiento = true;
+    }
+  });
+
   // Cuando se da click en el botón start
   $("#start").click(function () {
     // Si el nombre de usuario no ha sido ingresado
@@ -162,19 +188,15 @@ $(function () {
       alert("Por favor ingrese un nombre de usuario valido");
       return;
     }
+    if (!ok_sentimiento) {
+      alert("Por favor ingrese un sentimiento");
+      return;
+    }
 
     let numberOfHoops = hoopsPerLevel[lv];
     // Si la cantidad de aros no ha sido ingresado
     if (!numberOfHoops) return alert("Por favor, primero seleccione un nivel");
 
-    if (!$("#customControlValidation2").val()) {
-      alert("Por favor selecciona un sentimiento");
-      return;
-    }
-    if (!$("#username").val()) {
-      alert("Por favor ingrese un nombre de usuario valido");
-      return;
-    }
 
     hideMainScreen();
 
@@ -203,7 +225,7 @@ $(function () {
       posicion: [na],
       tiempo: [0]
     }
-    
+
     startGame(lv);
   });
 });
@@ -370,6 +392,8 @@ function startGame(level) {
       }, 400);
     }
   });
+  // Envia los datos de inicio
+  controlador();
 }
 
 // Función encargada de contar el tiempo
@@ -482,8 +506,11 @@ function controlador() {
     data: {
       "nombre": $("#username").val(),
       "fecha": "",
-      "jugada": jugadas,
-      "tiempo_entre_jugada": segundos_jugadas,
+      "n_juego": 1,
+      "intento": 1,
+      "sentimiento": sentimiento,
+      "movimiento": jugadas,
+      "tiempo_entre_movimiento": segundos_jugadas,
       "posicion": vtorres,
       "tiempo_total": total_time
     }

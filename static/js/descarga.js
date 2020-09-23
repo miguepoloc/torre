@@ -4,9 +4,10 @@ $.get(
         console.log(data);
         var lista_csv = [];
         for (let index = 0; index < data.length; index++) {
-            lista_csv.push([data[index].id, data[index].nombre, data[index].fecha, data[index].jugada, data[index].tiempo_entre_jugada, data[index].posicion, data[index].tiempo_total]);
+            lista_csv.push([data[index].id, data[index].nombre, data[index].fecha, data[index].n_juego, data[index].intento,
+            data[index].sentimiento, data[index].movimiento, data[index].tiempo_entre_movimiento, data[index].posicion,
+            data[index].tiempo_total]);
         }
-        // console.log(lista_csv);
 
         // Aquí viene el dato
         objeto_jugadores["csv"] = "";
@@ -15,18 +16,20 @@ $.get(
         objeto_jugadores["csv"] += "" + "\r\n";
         objeto_jugadores["csv"] += "" + "\r\n";
 
-        objeto_jugadores["csv"] += "Id;Nombre;Fecha;Jugada;Tiempo de jugada;Posicion;Tiempo total" + "\r\n";
+        objeto_jugadores["csv"] += "Id;Nombre;Fecha;# Juego;Intento;Sentimiento;Movimiento;Tiempo entre movimiento;Posicion;Tiempo total" + "\r\n";
         objeto_jugadores["csv"] += "" + "\r\n";
         objeto_jugadores["csv"] += "" + "\r\n";
         for (let ix = 0; ix < lista_csv.length; ix++) {
-            // console.log(lista_csv[ix][0]);
             objeto_jugadores["csv"] += String(lista_csv[ix][0]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][1]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][2]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][3]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][4]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][5]) + ";";
-            objeto_jugadores["csv"] += String(lista_csv[ix][6]);
+            objeto_jugadores["csv"] += String(lista_csv[ix][6]) + ";";
+            objeto_jugadores["csv"] += String(lista_csv[ix][7]) + ";";
+            objeto_jugadores["csv"] += String(lista_csv[ix][8]) + ";";
+            objeto_jugadores["csv"] += String(lista_csv[ix][9]);
             objeto_jugadores["csv"] += "" + "\r\n";
         }
         objeto_jugadores["csv"] += "" + "\r\n";

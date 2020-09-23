@@ -33,11 +33,9 @@
 				<div class="form-row">
 					<input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required>
 				</div>
-			</form>
-			<br>
-			<!-- Seleccionar con cuántos aros se jugará -->
-			<p>¿Con cuántos aros deseas jugar?</p>
-			<form class="was-validated">
+				<br>
+				<!-- Seleccionar con cuántos aros se jugará -->
+				<p>¿Con cuántos aros deseas jugar?</p>
 				<div class="form-group">
 					<div class="container">
 						<select class="custom-select" required id="select_aros">
@@ -54,40 +52,62 @@
 					</div>
 				</div>
 			</form>
+
+			<!-- Sentimientos  -->
 			<p>¿Cómo te sientes?</p>
 			<form class="was-validated">
 				<div class="row">
 					<div class="custom-control custom-radio col">
 						<label>
-							<input type="radio" class="custom-control-input" id="customControlValidation2"
-								name="radio-stacked" style="visibility: hidden;" required>
-							<img src="{% static 'img/feliz.png' %}" alt="triste" class="sentimiento-img">
-							<br>
-							<label for="customControlValidation2">Feliz</label>
+							<input class="form-check-input" type="radio" name="sentimiento_name" id="feliz"
+								value="Feliz">
+							<img src="{% static 'img/feliz.png' %}" alt="Feliz" class="sentimiento-img">
+							<label class="form-check-label" for="feliz">
+								Feliz
+							</label>
 						</label>
 					</div>
 					<div class="custom-control custom-radio col">
 						<label>
-							<input type="radio" class="custom-control-input" id="customControlValidation2"
-								name="radio-stacked" style="visibility: hidden;" required>
-							<img src="{% static 'img/triste.png' %}" alt="triste" class="sentimiento-img">
-							<br>
-							<label for="customControlValidation2">Triste</label>
+							<input class="form-check-input" type="radio" name="sentimiento_name" id="triste"
+								value="Triste">
+							<img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
+							<label class="form-check-label" for="triste">
+								Triste
+							</label>
 						</label>
 					</div>
 					<div class="custom-control custom-radio col">
 						<label>
-							<input type="radio" class="custom-control-input" id="customControlValidation2"
-								name="radio-stacked" style="visibility: hidden;" required>
-							<img src="{% static 'img/enojado.png' %}" alt="triste" class="sentimiento-img">
+							<input class="form-check-input" type="radio" name="sentimiento_name" id="enojado"
+								value="Enojado">
+							<img src="{% static 'img/enojado.png' %}" alt="Enojado" class="sentimiento-img">
+							<label class="form-check-label" for="enojado">
+								Enojado
+							</label>
+						</label>
+					</div>
+					<div class="custom-control custom-radio col">
+						<label>
+							<input class="form-check-input" type="radio" name="sentimiento_name" id="nervioso"
+								value="Nervioso">
+							<img src="{% static 'img/nervioso.png' %}" alt="Nervioso" class="sentimiento-img">
 							<br>
-							<label for="customControlValidation2">Enojado</label>
+							<label class="form-check-label" for="nervioso">
+								Nervioso
+							</label>
+						</label>
+					</div>
+					<div style="visibility: hidden;">
+						<label>
+							<input type="radio" class="custom-control-input" id="ola" name="sentimiento_name"
+								style="visibility: hidden;" required>
 						</label>
 					</div>
 				</div>
 				<!-- Botón de inicio -->
-				<a class="btn btn-primary" type="submit" id="start">JUGAR</a>
 			</form>
+			<a class="btn btn-primary" type="submit" id="start">JUGAR</a>
 		</div>
 	</div>
 
