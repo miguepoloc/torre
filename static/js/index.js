@@ -97,6 +97,19 @@ $.ajaxSetup({
   }
 });
 
+// USUARIOS
+var lista_children = [];
+
+$.get(
+  '/api/children/',
+  function (data) {
+    console.log(data);
+    for (let q = 0; q < data.length; q++) {
+      lista_children.push(data[q].nombre.toUpperCase() )
+    }
+    console.log(lista_children)
+  }
+);
 
 // Función principal
 $(function () {
@@ -183,8 +196,18 @@ $(function () {
 
   // Cuando se da click en el botón start
   $("#start").click(function () {
+    usuario = $("#username").val();
+    if (lista_children.includes(usuario.toUpperCase() )) {
+      console.log("Si esta");
+    }
+    else {
+      alert("Por favor ingrese un nombre de usuario valido");
+      return;
+    }
+
+
     // Si el nombre de usuario no ha sido ingresado
-    if (!$("#username").val()) {
+    if (!usuario) {
       alert("Por favor ingrese un nombre de usuario valido");
       return;
     }
@@ -281,7 +304,7 @@ function win(jugadas) {
 // Función del inicio del juego
 function startGame(level) {
   // Muestra el nombre del usuario
-  $("#user").html("Hola " + $("#username").val());
+  $("#user").html("Hola " + usuario.split(" ", 1));
   // Muestra el número de jugadas
   $("#jugadas").html(jugadas);
   // Oculta la página principal
@@ -504,7 +527,7 @@ function controlador() {
     type: "POST",
     url: "/api/jugador/",
     data: {
-      "nombre": $("#username").val(),
+      "nombre": usuario,
       "fecha": "",
       "n_juego": 1,
       "intento": 1,
