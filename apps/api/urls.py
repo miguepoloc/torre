@@ -4,7 +4,8 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'jugador', views.JugadorViewSet, "jugador")
-router.register(r'jugadorx', views.JugadorList, "jugador2")
+router.register(r'children', views.ChildrenViewSet, "children")
+
 
 urlpatterns = [
     path('', include(router.urls)),

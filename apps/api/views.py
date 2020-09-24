@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework import views, viewsets, mixins
 from rest_framework.response import Response
-from .serializers import JugadorSerializer
-from .models import Jugador
+from .serializers import JugadorSerializer, ChildrenSerializer
+from .models import Jugador, Children
+
 
 class JugadorViewSet(viewsets.ModelViewSet):
 
@@ -10,7 +11,7 @@ class JugadorViewSet(viewsets.ModelViewSet):
     serializer_class = JugadorSerializer
 
 
-class JugadorList(mixins.ListModelMixin, viewsets.GenericViewSet):
+class ChildrenViewSet(viewsets.ModelViewSet):
 
-    serializer_class = JugadorSerializer
-    queryset = Jugador.objects.all()
+    queryset = Children.objects.all()
+    serializer_class = ChildrenSerializer
