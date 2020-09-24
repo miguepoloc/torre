@@ -155,7 +155,7 @@ body {
 }
 
 .sentimiento-img {
-	width: 10vh;
+	width: 7vh;
 }
 
 /* HIDE RADIO */
@@ -312,6 +312,15 @@ ul li {
 	border-top-right-radius: 10px;
 }
 
+.base {
+	width: 80vw;
+	height: 20px;
+	background: #AA813C;
+	border-radius: 10px;
+	position: absolute;
+	top: 100%;
+}
+
 #juego {
 	width: 100%;
 	display: flex;
@@ -337,49 +346,49 @@ ul li {
 	width: 16vw;
 	left: 5.3vw;
 	bottom: 20px;
-	background: orangered;
+	background: yellow;
 }
 
 #drag3 {
 	width: 14vw;
 	left: 6.3vw;
 	bottom: 40px;
-	background: orange;
+	background: green;
 }
 
 #drag4 {
 	width: 12vw;
 	left: 7.3vw;
 	bottom: 60px;
-	background: yellow;
+	background: blue;
 }
 
 #drag5 {
 	width: 10vw;
 	left: 8.3vw;
 	bottom: 80px;
-	background: greenyellow;
+	background: cyan;
 }
 
 #drag6 {
 	width: 8vw;
 	left: 9.3vw;
 	bottom: 100px;
-	background: green;
+	background: purple;
 }
 
 #drag7 {
 	width: 6vw;
 	left: 10.3vw;
 	bottom: 120px;
-	background: blue;
+	background: gray;
 }
 
 #drag8 {
 	width: 4vw;
 	left: 11.3vw;
 	bottom: 140px;
-	background: purple;
+	background: black;
 }
 
 .points {
