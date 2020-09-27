@@ -170,6 +170,14 @@
 		<a type="button" class="btn btn-success" id="resume">Continuar</a>
 	</div>
 
+
+	<!-- No pueden jugar porque ya usaron los 5 intentos -->
+	<div id="sin_intentos">
+		<h2>Ya usaste todos tus intentos</h2>
+		<img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
+		<a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Salir</a>
+	</div>
+
 	<!-- Pantalla de ganador -->
 	<div id="winFace">
 		<h2>¡Felicitaciones!</h2>

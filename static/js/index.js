@@ -82,6 +82,18 @@ function showGameScreen() {
   })
 }
 
+// Muestra la pantalla del juego
+function sin_intentos() {
+  $("#sin_intentos").css({
+    // Coloca la sección con id game en la escala 1, o sea, adelante
+    transform: "scale(1)",
+    "border-radius": 0,
+    "z-index": 1000,
+    // Lo pone visible
+    opacity: 1
+  })
+}
+
 // --------------- PARA EL MÉTODO POST -----------
 // Token necesario para que funcione el método POST
 var csrftoken = Cookies.get('csrftoken');
@@ -105,11 +117,25 @@ $.get(
   function (data) {
     console.log(data);
     for (let q = 0; q < data.length; q++) {
-      lista_children.push(data[q].nombre.toUpperCase() )
+      lista_children.push(data[q].nombre.toUpperCase())
     }
-    console.log(lista_children)
   }
 );
+
+// JUEGO
+var juegox;
+$.get(
+  '/api/jugador/',
+  function (data) {
+    juegox = data;
+  }
+);
+// Es las veces que el niño ha jugado
+// Este es cada 8 días, mínimo
+var n_juego;
+// El número de intentos que ha realizado por juego
+var intentos;
+
 
 // Función principal
 $(function () {
@@ -197,29 +223,30 @@ $(function () {
   // Cuando se da click en el botón start
   $("#start").click(function () {
     usuario = $("#username").val();
-    if (lista_children.includes(usuario.toUpperCase() )) {
-      console.log("Si esta");
-    }
-    else {
-      alert("Por favor ingrese un nombre de usuario valido");
-      return;
-    }
-
-
     // Si el nombre de usuario no ha sido ingresado
     if (!usuario) {
-      alert("Por favor ingrese un nombre de usuario valido");
+      alert("Por favor ingrese un nombre");
+      return;
+    }
+    if (!lista_children.includes(usuario.toUpperCase())) {
+      alert("Por favor ingrese el nombre correctamente");
       return;
     }
     if (!ok_sentimiento) {
       alert("Por favor ingrese un sentimiento");
       return;
     }
-
     let numberOfHoops = hoopsPerLevel[lv];
     // Si la cantidad de aros no ha sido ingresado
     if (!numberOfHoops) return alert("Por favor, primero seleccione un nivel");
-
+    let c_intento = [];
+    for (let r = 0; r < juegox.length; r++) {
+      if (juegox[r].nombre.toUpperCase() == usuario.toUpperCase()) {
+        c_intento.push(juegox[r].intento)
+        console.log(juegox[r].intento);
+      }
+    }
+    intentos = c_intento[c_intento.length - 1] + 1;
 
     hideMainScreen();
 
@@ -249,7 +276,13 @@ $(function () {
       tiempo: [0]
     }
 
-    startGame(lv);
+    if (intentos <= 5) {
+      startGame(lv);
+    }
+    else{
+      sin_intentos();
+    }
+
   });
 });
 
@@ -530,7 +563,7 @@ function controlador() {
       "nombre": usuario,
       "fecha": "",
       "n_juego": 1,
-      "intento": 1,
+      "intento": intentos,
       "sentimiento": sentimiento,
       "movimiento": jugadas,
       "tiempo_entre_movimiento": segundos_jugadas,

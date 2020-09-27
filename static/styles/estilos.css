@@ -234,6 +234,28 @@ body {
 	background-image: url('/static/img/fondo1.jpg');
 }
 
+#sin_intentos {
+	top: 0;
+	z-index: 0;
+	margin: 0 auto;
+	display: flex;
+	transform: scale(0);
+	border-radius: 50%;
+	transition: .4s;
+	width: 100vw;
+	height: 100vh;
+	justify-content: space-between;
+	align-items: center;
+	background-image: url('/static/img/fondo1.jpg');
+	position: absolute;
+	opacity: 0;
+	text-transform: uppercase;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 30px;
+}
+
 p {
 	margin: 20px 0;
 }
