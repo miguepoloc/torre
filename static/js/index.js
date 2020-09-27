@@ -127,6 +127,9 @@ var juegox;
 $.get(
   '/api/jugador/',
   function (data) {
+    for (let index = 0; index < data.length; index++) {
+      data[index].nombre = data[index].nombre.toUpperCase();
+    }
     juegox = data;
   }
 );
@@ -134,7 +137,7 @@ $.get(
 // Este es cada 8 días, mínimo
 var n_juego;
 // El número de intentos que ha realizado por juego
-var intentos;
+var intentos = 1;
 
 
 // Función principal
@@ -222,13 +225,13 @@ $(function () {
 
   // Cuando se da click en el botón start
   $("#start").click(function () {
-    usuario = $("#username").val();
+    usuario = $("#username").val().toUpperCase();
     // Si el nombre de usuario no ha sido ingresado
     if (!usuario) {
       alert("Por favor ingrese un nombre");
       return;
     }
-    if (!lista_children.includes(usuario.toUpperCase())) {
+    if (!lista_children.includes(usuario)) {
       alert("Por favor ingrese el nombre correctamente");
       return;
     }
@@ -239,14 +242,20 @@ $(function () {
     let numberOfHoops = hoopsPerLevel[lv];
     // Si la cantidad de aros no ha sido ingresado
     if (!numberOfHoops) return alert("Por favor, primero seleccione un nivel");
+
+
     let c_intento = [];
     for (let r = 0; r < juegox.length; r++) {
       if (juegox[r].nombre.toUpperCase() == usuario.toUpperCase()) {
         c_intento.push(juegox[r].intento)
-        console.log(juegox[r].intento);
       }
     }
     intentos = c_intento[c_intento.length - 1] + 1;
+
+    if (c_intento.length == 0) {
+      intentos = 1;
+    }
+
 
     hideMainScreen();
 
@@ -279,7 +288,7 @@ $(function () {
     if (intentos <= 5) {
       startGame(lv);
     }
-    else{
+    else {
       sin_intentos();
     }
 
