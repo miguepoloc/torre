@@ -135,7 +135,7 @@ $.get(
 );
 // Es las veces que el niño ha jugado
 // Este es cada 8 días, mínimo
-var n_juego;
+var n_juego = 1;
 // El número de intentos que ha realizado por juego
 var intentos = 1;
 
@@ -243,18 +243,47 @@ $(function () {
     // Si la cantidad de aros no ha sido ingresado
     if (!numberOfHoops) return alert("Por favor, primero seleccione un nivel");
 
-
+    let f_ultimo_intento;
     let c_intento = [];
+    let c_juego = [];
     for (let r = 0; r < juegox.length; r++) {
       if (juegox[r].nombre.toUpperCase() == usuario.toUpperCase()) {
         c_intento.push(juegox[r].intento)
+        c_juego.push(juegox[r].n_juego)
+        f_ultimo_intento = juegox[r].fecha;
       }
     }
     intentos = c_intento[c_intento.length - 1] + 1;
+    n_juego = c_juego[c_juego.length - 1];
 
+
+    // Control de diferencia de fechas
+    var f = new Date();
+    let f_dif = f.setDate(f.getDate() - 7);
+    f_dif = new Date(f_dif);
+    let anio_dif = f_dif.toLocaleString("en-US", { year: "numeric" });
+    let mes_dif = f_dif.toLocaleString("en-US", { month: "numeric" });
+    let dia_dif = f_dif.toLocaleString("en-US", { day: "numeric" });
+    if (mes_dif < 10) mes_dif = `0${mes_dif}`;
+    if (dia_dif < 10) dia_dif = `0${dia_dif}`;
+    f_dif = anio_dif + "-" + mes_dif + "-" + dia_dif;
+
+    // Variable para controlar la fecha del último intento
+    let fu = new Date(f_ultimo_intento.split(" ")[0]);
+    // Variable que controla la diferencia entre hoy y 7 días
+    let fd = new Date(f_dif);
+    // Si el último intento fue antes de la diferencia de fechas
+    if (fu <= fd) {
+      intentos = 1;
+      n_juego = c_juego[c_juego.length - 1] + 1;
+
+    }
     if (c_intento.length == 0) {
       intentos = 1;
     }
+    console.log(intentos);
+    console.log(n_juego);
+
 
 
     hideMainScreen();
@@ -571,7 +600,7 @@ function controlador() {
     data: {
       "nombre": usuario,
       "fecha": "",
-      "n_juego": 1,
+      "n_juego": n_juego,
       "intento": intentos,
       "sentimiento": sentimiento,
       "movimiento": jugadas,
