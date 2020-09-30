@@ -1,4 +1,3 @@
-
 // Variables y constantes
 const leftValues = {
   center: 30,
@@ -139,6 +138,8 @@ var n_juego = 1;
 // El número de intentos que ha realizado por juego
 var intentos = 1;
 
+// Sonido
+var audio = document.getElementById("audio");
 
 // Función principal
 $(function () {
@@ -225,37 +226,47 @@ $(function () {
 
   // Cuando se da click en el botón start
   $("#start").click(function () {
+    plop.play();
+
     usuario = $("#username").val().toUpperCase();
     // Si el nombre de usuario no ha sido ingresado
     if (!usuario) {
       alert("Por favor ingrese un nombre");
+      boing.play();
       return;
     }
     if (!lista_children.includes(usuario)) {
       alert("Por favor ingrese el nombre correctamente");
+      boing.play();
       return;
     }
     if (!ok_sentimiento) {
       alert("Por favor ingrese un sentimiento");
+      boing.play();
       return;
     }
     let numberOfHoops = hoopsPerLevel[lv];
     // Si la cantidad de aros no ha sido ingresado
-    if (!numberOfHoops) return alert("Por favor, primero seleccione un nivel");
+    if (!numberOfHoops) {
+      alert("Por favor, primero seleccione un nivel");
+      boing.play();
+      return;
+    }
 
     let f_ultimo_intento;
+    let c_fecha = [];
     let c_intento = [];
     let c_juego = [];
     for (let r = 0; r < juegox.length; r++) {
       if (juegox[r].nombre.toUpperCase() == usuario.toUpperCase()) {
-        c_intento.push(juegox[r].intento)
-        c_juego.push(juegox[r].n_juego)
-        f_ultimo_intento = juegox[r].fecha;
+        c_intento.push(juegox[r].intento);
+        c_juego.push(juegox[r].n_juego);
+        c_fecha.push(juegox[r].fecha);
       }
     }
     intentos = c_intento[c_intento.length - 1] + 1;
     n_juego = c_juego[c_juego.length - 1];
-
+    f_ultimo_intento = c_fecha[c_fecha.length - 1];
 
     // Control de diferencia de fechas
     var f = new Date();
@@ -268,10 +279,19 @@ $(function () {
     if (dia_dif < 10) dia_dif = `0${dia_dif}`;
     f_dif = anio_dif + "-" + mes_dif + "-" + dia_dif;
 
-    // Variable para controlar la fecha del último intento
-    let fu = new Date(f_ultimo_intento.split(" ")[0]);
+
+
     // Variable que controla la diferencia entre hoy y 7 días
     let fd = new Date(f_dif);
+    // Variable para controlar la fecha del último intento
+    let fu;
+    if (c_fecha.length == 0) {
+      fu = fd;
+    }
+    else {
+      fu = new Date(f_ultimo_intento.split(" ")[0]);
+    }
+
     // Si el último intento fue antes de la diferencia de fechas
     if (fu <= fd) {
       intentos = 1;
@@ -280,6 +300,9 @@ $(function () {
     }
     if (c_intento.length == 0) {
       intentos = 1;
+    }
+    if (c_juego.length == 0) {
+      n_juego = 1;
     }
     console.log(intentos);
     console.log(n_juego);
@@ -420,7 +443,7 @@ function startGame(level) {
         // No sé
         setTimeout(function () {
           hoop.draggable.draggable({ revert: true });
-        }, 10);
+        }, 10000);
         // Añade la torre que aro tiene encima
         $(this).data("data").elements.push(hoop.draggable);
 
@@ -462,6 +485,9 @@ function startGame(level) {
         elements[elements.length - 1].draggable({ disabled: false });
         // Coloca el máximo valor de la torre como el aro que está arriba
         $(this).data("data").maxValue = dragValue;
+      }
+      else {
+        boing.play();
       }
       // ---------------------------- Explicación del juego fin -------------------
 
@@ -528,6 +554,7 @@ function cronometro_control() {
 
 // Función de pausa
 function pause() {
+  plop.play();
   // Evita que la función setTimeout se ejecute
   clearTimeout(control);
   clearTimeout(control_cro);

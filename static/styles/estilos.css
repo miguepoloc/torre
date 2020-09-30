@@ -2,6 +2,10 @@ body {
 	overflow: show;
 }
 
+#boing, #plop {
+	display: none
+}
+
 @font-face {
 	font-family: "torre";
 	src: url('/static/font/K26ToyBlocks123.ttf');
