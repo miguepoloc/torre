@@ -35,6 +35,10 @@ body {
 	display: none;
 }
 
+#selector {
+	justify-content: center;
+}
+
 .photo {
 	background: #2980b9;
 	border: 0 !important;
