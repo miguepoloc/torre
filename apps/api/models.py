@@ -12,6 +12,8 @@ class Jugador(models.Model):
     fecha = models.CharField(max_length=200, default=corrector_hora)
     n_juego = models.IntegerField()
     intento = models.IntegerField()
+    error = models.CharField(max_length=200, default="No")
+    n_error = models.IntegerField()
     sentimiento = models.CharField(max_length=200)
     movimiento = models.IntegerField()
     tiempo_entre_movimiento = models.IntegerField()

@@ -7,24 +7,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Torre - Descarga</title>
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
-	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{% static 'styles/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css' %}">
 	<!--===============================================================================================-->
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.min.css" rel="stylesheet">
+
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 	<link rel="shortcut icon" type="image/png" href="{% static 'img/logo.png' %}" />
 
+	<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -33,14 +31,12 @@
 		<div class="container-login100" style="background-image: url('/static/img/juguete.jpg');">
 			<div class="wrap-login100">
 				<form class="login100-form">
-					<!-- <form class="login100-form validate-form"> -->
 
 					<h1 class="login100-form-title p-b-34 p-t-27">
 						Administración
 					</h1>
 
 					<div class="form-group row" id="selector">
-						<!-- <label for="inputArea" class="col-sm-2 col-form-label">Niños</label> -->
 						<div>
 							<select class="custom-select" required id="select_children">
 								<option value="">Seleecione un niño</option>
@@ -79,24 +75,6 @@
 	{% csrf_token %}
 
 	<script type="text/javascript" src="{% static 'js/descarga.js' %}"></script>
-
-	<!--===============================================================================================-->
-	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
-	<!--===============================================================================================-->
-	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
-	<!--===============================================================================================-->
-	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
-	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
-	<!--===============================================================================================-->
-	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-	<!--===============================================================================================-->
-	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
-	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
-	<!--===============================================================================================-->
-	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
-	<!--===============================================================================================-->
-	<script src="{% static 'js/main2.js' %}"></script>
-
 </body>
 
 </html>

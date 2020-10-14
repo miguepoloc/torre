@@ -41,6 +41,8 @@ var lista_sentimientos = [];
 var sentimiento_check;
 var ok_sentimiento = false;
 var sentimiento;
+var error = "No";
+var n_error = 0;
 
 // Obtener el número de aros
 function getDraggableElements(limit) {
@@ -226,7 +228,7 @@ $(function () {
 
   // Cuando se da click en el botón start
   $("#start").click(function () {
-    plop.play();
+    // plop.play();
 
     usuario = $("#username").val().toUpperCase();
     // Si el nombre de usuario no ha sido ingresado
@@ -379,6 +381,7 @@ function validarVictoria(level, jugadas) {
 
 // Función de ganar
 function win(jugadas) {
+  aplauso.play();
   // Oculta la pantalla de juego
   $("#game").css("transform", "scale(0)");
   // Muestra el número de movimientos que realizó el ganador
@@ -438,12 +441,14 @@ function startGame(level) {
 
       // Si el disco que se movió es mayor al máximo valor de la torre
       if (dragValue > maxValue) {
+        plop.play();
+        error = "No";
         // No revierte la jugada, como debe ser
         hoop.draggable.draggable({ revert: false });
         // No sé
         setTimeout(function () {
           hoop.draggable.draggable({ revert: true });
-        }, 10000);
+        }, 400);
         // Añade la torre que aro tiene encima
         $(this).data("data").elements.push(hoop.draggable);
 
@@ -488,6 +493,8 @@ function startGame(level) {
       }
       else {
         boing.play();
+        error = "Si";
+        n_error = n_error + 1;
       }
       // ---------------------------- Explicación del juego fin -------------------
 
@@ -554,7 +561,7 @@ function cronometro_control() {
 
 // Función de pausa
 function pause() {
-  plop.play();
+  // plop.play();
   // Evita que la función setTimeout se ejecute
   clearTimeout(control);
   clearTimeout(control_cro);
@@ -629,6 +636,8 @@ function controlador() {
       "fecha": "",
       "n_juego": n_juego,
       "intento": intentos,
+      "error": error,
+      "n_error": n_error,
       "sentimiento": sentimiento,
       "movimiento": jugadas,
       "tiempo_entre_movimiento": segundos_jugadas,
