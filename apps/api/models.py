@@ -28,6 +28,7 @@ class Children(models.Model):
     id = models.IntegerField(primary_key=True)
     vinculador = models.CharField(max_length=200)
     nombre = models.CharField(max_length=200)
+    codigo = models.CharField(max_length=200)
     sexo = models.CharField(max_length=200)
     fecha_nacimiento = models.CharField(max_length=200)
     edad = models.IntegerField()

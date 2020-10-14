@@ -112,6 +112,7 @@ $.ajaxSetup({
 
 // USUARIOS
 var lista_children = [];
+var lista_codigo = [];
 
 $.get(
   '/api/children/',
@@ -119,6 +120,7 @@ $.get(
     console.log(data);
     for (let q = 0; q < data.length; q++) {
       lista_children.push(data[q].nombre.toUpperCase())
+      lista_codigo.push(data[q].codigo.toUpperCase())
     }
   }
 );
@@ -237,10 +239,17 @@ $(function () {
       boing.play();
       return;
     }
-    if (!lista_children.includes(usuario)) {
+    if (!(!lista_children.includes(usuario) || !lista_codigo.includes(usuario))) {
       alert("Por favor ingrese el nombre correctamente");
       boing.play();
       return;
+    }
+    for (let index = 0; index < lista_codigo.length; index++) {
+
+      if (lista_codigo[index] == usuario) {
+        usuario = lista_children[index];
+      }
+
     }
     if (!ok_sentimiento) {
       alert("Por favor ingrese un sentimiento");
