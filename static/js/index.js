@@ -252,7 +252,7 @@ $(function () {
 
     }
     if (!ok_sentimiento) {
-      alert("Por favor ingrese un sentimiento");
+      alert("Por favor ingrese una emoción");
       boing.play();
       return;
     }
@@ -537,14 +537,14 @@ function cronometro() {
   // Incrementa la cuenta de segundos
   segundos++;
   // Si han paso 60 segundos
-  if (segundos == 60) {
+  if ((segundos / 100) == 60) {
     // Incrementa la cuenta de minutos
     minutos++;
     // Establece en 0 los segundos
     segundos = 0;
   }
   // Función de los segundos
-  let txtS = segundos < 10 ? `0${segundos}` : `${segundos}`;
+  let txtS = (segundos / 100) < 10 ? `0${segundos / 100}` : `${segundos / 100}`;
   // Función de los minutos
   let txtM = minutos < 10 ? `0${minutos}` : `${minutos}`;
   total_time = txtM + ":" + txtS;
@@ -555,7 +555,7 @@ function cronometro() {
   // Llama a la función cronómetro cada 1000 ms (1s)
   control = setTimeout(function () {
     cronometro();
-  }, 1000);
+  }, 10);
 }
 
 // Función encargada de contar el tiempo entre jugadas
@@ -565,7 +565,10 @@ function cronometro_control() {
   // Llama a la función cronómetro cada 1000 ms (1s)
   control_cro = setTimeout(function () {
     cronometro_control();
-  }, 1000);
+  }, 10);
+  // Colocar los sapitos muertos la vida 5 sapitos
+  // En el video explicar las posibilidades de movimientos que tiene
+  // 5 intentos nos vemos en la próxima
 }
 
 // Función de pausa
@@ -635,7 +638,7 @@ function controlador() {
 
   objeto_control.jugada.push(jugadas);
   objeto_control.posicion.push(vtorres);
-  objeto_control.tiempo.push(segundos_jugadas);
+  objeto_control.tiempo.push(segundos_jugadas / 100);
 
   $.ajax({
     type: "POST",
@@ -649,7 +652,7 @@ function controlador() {
       "n_error": n_error,
       "sentimiento": sentimiento,
       "movimiento": jugadas,
-      "tiempo_entre_movimiento": segundos_jugadas,
+      "tiempo_entre_movimiento": segundos_jugadas / 100,
       "posicion": vtorres,
       "tiempo_total": total_time
     }

@@ -16,7 +16,7 @@ class Jugador(models.Model):
     n_error = models.IntegerField()
     sentimiento = models.CharField(max_length=200)
     movimiento = models.IntegerField()
-    tiempo_entre_movimiento = models.IntegerField()
+    tiempo_entre_movimiento = models.FloatField()
     posicion = models.CharField(max_length=200)
     tiempo_total = models.CharField(max_length=200)
 
