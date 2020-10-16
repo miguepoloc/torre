@@ -19,6 +19,7 @@ $.get(
             }
         }
 
+        console.log(lista_csv);
         // Aquí viene el dato
         objeto_jugadores["csv"] = "";
         objeto_jugadores["csv"] += "Nombre del proyecto:;" + "Torre de Hanoi" + "\r\n";
@@ -37,7 +38,10 @@ $.get(
             objeto_jugadores["csv"] += String(lista_csv[ix][6]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][7]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][8]) + ";";
-            objeto_jugadores["csv"] += String(lista_csv[ix][9]);
+            objeto_jugadores["csv"] += String(lista_csv[ix][9]) + ";";
+            objeto_jugadores["csv"] += String(lista_csv[ix][10]) + ";";
+            objeto_jugadores["csv"] += String(lista_csv[ix][11]);
+
             objeto_jugadores["csv"] += "" + "\r\n";
         }
         objeto_jugadores["csv"] += "" + "\r\n";
@@ -95,7 +99,9 @@ $.get(
                     objeto_uno["csv"] += String(lista_csv_nombre[ix][6]) + ";";
                     objeto_uno["csv"] += String(lista_csv_nombre[ix][7]) + ";";
                     objeto_uno["csv"] += String(lista_csv_nombre[ix][8]) + ";";
-                    objeto_uno["csv"] += String(lista_csv_nombre[ix][9]);
+                    objeto_uno["csv"] += String(lista_csv_nombre[ix][9]) + ";";
+                    objeto_uno["csv"] += String(lista_csv_nombre[ix][10]) + ";";
+                    objeto_uno["csv"] += String(lista_csv_nombre[ix][11]);
                     objeto_uno["csv"] += "" + "\r\n";
                 }
                 objeto_uno["csv"] += "" + "\r\n";

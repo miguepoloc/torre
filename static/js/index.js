@@ -425,7 +425,7 @@ function win(jugadas) {
   if (minutos < 10) minutos = `0${minutos}`;
   if (segundos < 10) segundos = `0${segundos}`;
   // Muestra el tiempo que tardó
-  $("#time").html(`${minutos}:${segundos} m`);
+  $("#time").html(`${minutos}:${segundos / 100} m`);
   // Coloca la pantalla del ganador
   setTimeout(function () {
     $("#winFace").css("transform", "scale(1)");
@@ -679,7 +679,7 @@ function controlador() {
       "movimiento": jugadas,
       "tiempo_entre_movimiento": segundos_jugadas / 100,
       "posicion": vtorres,
-      "tiempo_total": total_time
+      "tiempo_total": segundos / 100
     }
   });
   console.log(objeto_control);
