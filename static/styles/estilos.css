@@ -178,6 +178,10 @@ body {
 	width: 7vh;
 }
 
+.vida-img {
+	width: 6vh;
+}
+
 /* HIDE RADIO */
 
 [type=radio] {
@@ -434,6 +438,18 @@ ul li {
 }
 
 .points {
+	z-index: 10;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	top: 10vh;
+	left: 0;
+	font-weight: 600;
+}
+
+.vidas {
 	z-index: 10;
 	position: absolute;
 	display: flex;

@@ -218,13 +218,32 @@
                         <!-- Muestra el tiempo desde que se dió inicio -->
                         <p>Tiempo: <span id="minutos">00</span>:<span id="segundos">00</span></p>
                     </div>
+                </div>
+                <div class="vidas">
+                    <div id="vidas" class="row">
+                        <div class="col-2">
+                            <img src="/static/img/feliz.png" alt="Nervioso" class="vida-img">
+                        </div>
+                        <div class="col-2">
+                            <img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+                        </div>
+                        <div class="col-2">
+                            <img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+                        </div>
+                        <div class="col-2">
+                            <img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+                        </div>
+                        <div class="col-2">
+                            <img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+                        </div>
+                    </div>
                     <!-- Control de pausa y reinicio -->
                     <div class="controls">
                         <!-- Botón de pausa -->
                         <a type="button" class="btn btn-success" id="pause">Pausa</a>
                         <br>
                         <!-- Botón de reinicio -->
-                        <a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Reiniciar</a>
+                        <a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Reinicio</a>
                     </div>
                 </div>
             </div>
@@ -238,8 +257,9 @@
 
             <!-- No pueden jugar porque ya usaron los 5 intentos -->
             <div id="sin_intentos">
-                <h2>Ya usaste todos tus intentos</h2>
-                <img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
+                <h2>Nos vemos a la próxima</h2>
+                <img src="{% static 'img/feliz.png' %}" alt="Triste" class="sentimiento-img">
+                <br>
                 <a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Salir</a>
             </div>
 

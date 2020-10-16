@@ -9,8 +9,8 @@ $.get(
         let nombre_actual;
         for (let index = 0; index < data.length; index++) {
             lista_csv.push([data[index].id, data[index].nombre, data[index].fecha, data[index].n_juego, data[index].intento,
-            data[index].sentimiento, data[index].movimiento, data[index].tiempo_entre_movimiento, data[index].posicion,
-            data[index].tiempo_total]);
+            data[index].error, data[index].n_error, data[index].sentimiento, data[index].movimiento,
+            data[index].tiempo_entre_movimiento, data[index].posicion, data[index].tiempo_total]);
 
             // Control de niños
             nombre_actual = data[index].nombre.toUpperCase();
@@ -26,9 +26,7 @@ $.get(
         objeto_jugadores["csv"] += "" + "\r\n";
         objeto_jugadores["csv"] += "" + "\r\n";
 
-        objeto_jugadores["csv"] += "Id;Nombre;Fecha;# Juego;Intento;Sentimiento;Movimiento;Tiempo entre movimiento;Posicion;Tiempo total" + "\r\n";
-        objeto_jugadores["csv"] += "" + "\r\n";
-        objeto_jugadores["csv"] += "" + "\r\n";
+        objeto_jugadores["csv"] += "Id;Nombre;Fecha;# Juego;Intento;Error;# Error;Sentimiento;Movimiento;Tiempo entre movimiento;Posicion;Tiempo total" + "\r\n";
         for (let ix = 0; ix < lista_csv.length; ix++) {
             objeto_jugadores["csv"] += String(lista_csv[ix][0]) + ";";
             objeto_jugadores["csv"] += String(lista_csv[ix][1]) + ";";
@@ -74,8 +72,8 @@ $.get(
                 for (let index = 0; index < data.length; index++) {
                     if (data[index].nombre.toUpperCase() == selectedOption.value.toUpperCase()) {
                         lista_csv_nombre.push([data[index].id, data[index].nombre, data[index].fecha, data[index].n_juego, data[index].intento,
-                        data[index].sentimiento, data[index].movimiento, data[index].tiempo_entre_movimiento, data[index].posicion,
-                        data[index].tiempo_total]);
+                        data[index].error, data[index].n_error, data[index].sentimiento, data[index].movimiento,
+                        data[index].tiempo_entre_movimiento, data[index].posicion, data[index].tiempo_total]);
                     }
 
                 }
@@ -86,9 +84,7 @@ $.get(
                 objeto_uno["csv"] += "" + "\r\n";
                 objeto_uno["csv"] += "" + "\r\n";
 
-                objeto_uno["csv"] += "Id;Nombre;Fecha;# Juego;Intento;Sentimiento;Movimiento;Tiempo entre movimiento;Posicion;Tiempo total" + "\r\n";
-                objeto_uno["csv"] += "" + "\r\n";
-                objeto_uno["csv"] += "" + "\r\n";
+                objeto_uno["csv"] += "Id;Nombre;Fecha;# Juego;Intento;Error;# Error;Sentimiento;Movimiento;Tiempo entre movimiento;Posicion;Tiempo total" + "\r\n";
                 for (let ix = 0; ix < lista_csv_nombre.length; ix++) {
                     objeto_uno["csv"] += String(lista_csv_nombre[ix][0]) + ";";
                     objeto_uno["csv"] += String(lista_csv_nombre[ix][1]) + ";";

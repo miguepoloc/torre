@@ -315,6 +315,32 @@ $(function () {
     if (c_juego.length == 0) {
       n_juego = 1;
     }
+
+
+
+    let htmlx = "";
+    htmlx += '<div id="vidas" class="row">';
+    for (let index = 1; index < intentos; index++) {
+      if (intentos != 1) {
+        htmlx += '<div class="col-2">';
+        htmlx += '<img src="/static/img/muerto.png" class="vida-img">';
+        htmlx += '</div>';
+      }
+      else {
+        htmlx += '<div class="col-2">';
+        htmlx += '<img src="/static/img/feliz.png" class="vida-img">';
+        htmlx += '</div>';
+      }
+    }
+    for (let index = 0; index < (6 - intentos); index++) {
+      htmlx += '<div class="col-2">';
+      htmlx += '<img src="/static/img/feliz.png" class="vida-img">';
+      htmlx += '</div>';
+    }
+    htmlx += '</div>';
+
+    $("#vidas").html(htmlx);
+    console.log(intentos);
     console.log(intentos);
     console.log(n_juego);
 
@@ -566,7 +592,6 @@ function cronometro_control() {
   control_cro = setTimeout(function () {
     cronometro_control();
   }, 10);
-  // Colocar los sapitos muertos la vida 5 sapitos
   // En el video explicar las posibilidades de movimientos que tiene
   // 5 intentos nos vemos en la próxima
 }
