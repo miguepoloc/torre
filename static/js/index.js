@@ -19,6 +19,8 @@ var hoopsPerLevel = {
   ocho: 8
 };
 
+var numberOfHoops;
+
 // Variable de control de tiempo
 let control;
 // Variable de control de tiempo
@@ -73,6 +75,24 @@ function hideMainScreen() {
   });
 }
 
+function hideTutorialScreen() {
+  // Coge el id de la página de inicio
+  $("#tuto").css({
+    //Lo manda para atrás
+    transform: "scale(0)",
+    "border-radius": "50%"
+  });
+}
+
+
+// Muestra la pantalla del juego
+function showTutorialScreen() {
+  $("#tuto").css({
+    // Coloca la sección con id game en la escala 1, o sea, adelante
+    transform: "scale(1)",
+    "border-radius": 0
+  })
+}
 
 // Muestra la pantalla del juego
 function showGameScreen() {
@@ -228,10 +248,7 @@ $(function () {
     }
   });
 
-  // Cuando se da click en el botón start
-  $("#start").click(function () {
-    // plop.play();
-
+  $("#tutorial").click(function () {
     usuario = $("#username").val().toUpperCase();
     // Si el nombre de usuario no ha sido ingresado
     if (!usuario) {
@@ -256,14 +273,20 @@ $(function () {
       boing.play();
       return;
     }
-    let numberOfHoops = hoopsPerLevel[lv];
+    numberOfHoops = hoopsPerLevel[lv];
     // Si la cantidad de aros no ha sido ingresado
     if (!numberOfHoops) {
       alert("Por favor, primero seleccione un nivel");
       boing.play();
       return;
     }
+    hideMainScreen();
+    showTutorialScreen();
+  });
 
+
+  // Cuando se da click en el botón start
+  $("#start").click(function () {
     let f_ultimo_intento;
     let c_fecha = [];
     let c_intento = [];
@@ -344,9 +367,6 @@ $(function () {
     console.log(intentos);
     console.log(n_juego);
 
-
-
-    hideMainScreen();
 
     // Se le asignan los datos a la torre 1
     $("#tower1").data("data", {
@@ -440,7 +460,7 @@ function startGame(level) {
   // Muestra el número de jugadas
   $("#jugadas").html(jugadas);
   // Oculta la página principal
-  hideMainScreen();
+  hideTutorialScreen();
   // Inicia el juego 400 ms después de dar start
   setTimeout(showGameScreen, 400);
   // Llama a la función cronómetro 0.8 s después de dar start
