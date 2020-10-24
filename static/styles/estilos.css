@@ -168,6 +168,27 @@ body {
 	align-items: center;
 }
 
+#mainFace2 {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	transform: scale(0);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+	transition: .4s;
+	height: 100vh;
+
+	margin: 0 auto;
+	border-radius: 50%;
+}
+
 #frametuto {
 	height: 50vh;
 	width: 95vw;

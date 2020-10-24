@@ -3,11 +3,14 @@
 <html lang="es">
 
 <head>
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Torre</title>
-
-	<link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/estilos.css' %}">
+	<!--===============================================================================================-->
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.min.css" rel="stylesheet">
 
@@ -69,185 +72,222 @@
 </head>
 
 <body>
+	<!-- Control de audio  -->
 	<audio id="boing" controls>
 		<source type="audio/wav" src="{% static 'sound/boing.mp3' %}">
 	</audio>
 	<audio id="plop" controls>
 		<source type="audio/wav" src="{% static 'sound/plop.mp3' %}">
 	</audio>
-	<!-- Sección principal  -->
-	<div id="mainFace">
-		<div id="principal">
-			<h1 style="margin-top: 20px;" id="titulo">Torres de Hanoi</h1>
-			<!-- Agregar el nombre de Usuario -->
-			<form class="was-validated">
-				<div class="form-row">
-					<input type="text" class="form-control" id="username" placeholder="Nombre de usuario" required>
+	<audio id="toc" controls>
+		<source type="audio/wav" src="{% static 'sound/toc.mp3' %}">
+	</audio>
+	<audio id="aplauso" controls>
+		<source type="audio/wav" src="{% static 'sound/aplauso.mp3' %}">
+	</audio>
+
+	<div class="limiter">
+		<!-- Div del fondo  -->
+		<div class="container-login100" style="background-image: url('/static/img/juguete.jpg');">
+			<!-- <div class="wrap-login100"> -->
+			<!-- Div con la información -->
+			<div id="mainFace">
+				<div id="principal">
+					<h1 style="margin-top: 20px;" id="titulo">Torres de Hanoi</h1>
+					<!-- Agregar el nombre de Usuario -->
+					<form class="was-validated">
+						<p>Siguamos jugando</p>
+						<h1 id="nombrenuevo">{{ nombrex }}</h1>
+						<br>
+						<!-- Seleccionar con cuántos aros se jugará -->
+						<p>¿Con cuántos aros deseas jugar?</p>
+						<div class="form-group">
+							<div class="container">
+								<select class="custom-select" required id="select_aros">
+									<option value="">Selecciona el número de aros</option>
+									<option value="uno">Uno (1)</option>
+									<option value="dos">Dos (2)</option>
+									<option value="tres">Tres (3)</option>
+									<option value="cuatro">Cuatro (4)</option>
+									<option value="cinco">Cinco (5)</option>
+									<option value="seis">Seis (6)</option>
+									<option value="siete">Siete (7)</option>
+									<option value="ocho">Ocho (8)</option>
+								</select>
+							</div>
+						</div>
+					</form>
+
+					<!-- Sentimientos  -->
+					<p>¿Cómo te sientes?</p>
+					<form class="was-validated">
+						<div class="row">
+							<div class="custom-control custom-radio col">
+								<label>
+									<input class="form-check-input" type="radio" name="sentimiento_name" id="feliz"
+										value="Feliz">
+									<img src="{% static 'img/feliz.png' %}" alt="Feliz" class="sentimiento-img">
+									<br>
+									<label class="form-check-label" for="feliz">
+										Feliz
+									</label>
+								</label>
+							</div>
+							<div class="custom-control custom-radio col">
+								<label>
+									<input class="form-check-input" type="radio" name="sentimiento_name" id="triste"
+										value="Triste">
+									<img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
+									<br>
+									<label class="form-check-label" for="triste">
+										Triste
+									</label>
+								</label>
+							</div>
+							<div class="custom-control custom-radio col">
+								<label>
+									<input class="form-check-input" type="radio" name="sentimiento_name" id="enojado"
+										value="Enojado">
+									<img src="{% static 'img/enojado.png' %}" alt="Enojado" class="sentimiento-img">
+									<br>
+									<label class="form-check-label" for="enojado">
+										Enojado
+									</label>
+								</label>
+							</div>
+							<div class="custom-control custom-radio col">
+								<label>
+									<input class="form-check-input" type="radio" name="sentimiento_name" id="nervioso"
+										value="Nervioso">
+									<img src="{% static 'img/nervioso.png' %}" alt="Nervioso" class="sentimiento-img">
+									<br>
+									<label class="form-check-label" for="nervioso">
+										Nervioso
+									</label>
+								</label>
+							</div>
+							<div style="visibility: hidden;">
+								<label>
+									<input type="radio" class="custom-control-input" id="ola" name="sentimiento_name"
+										style="visibility: hidden;" required>
+								</label>
+							</div>
+						</div>
+						<!-- Botón de inicio -->
+					</form>
+					<a class="btn btn-primary" type="submit" id="start2">JUGAR</a>
 				</div>
+			</div>
+
+			<!-- </div> -->
+			<!-- Juego -->
+			<div id="game">
+				<div id="juego">
+					<!-- Todos los aros -->
+					<div class="aro" id="drag1"></div>
+					<div class="aro" id="drag2"></div>
+					<div class="aro" id="drag3"></div>
+					<div class="aro" id="drag4"></div>
+					<div class="aro" id="drag5"></div>
+					<div class="aro" id="drag6"></div>
+					<div class="aro" id="drag7"></div>
+					<div class="aro" id="drag8"></div>
+					<!-- Todas las torres -->
+					<div class="tower" id="tower1">
+						<div class="torre"></div>
+					</div>
+					<div class="tower" id="tower2">
+						<div class="torre"></div>
+					</div>
+					<div class="tower" id="tower3">
+						<div class="torre"></div>
+					</div>
+					<div class="base">
+
+					</div>
+				</div>
+
+				<!-- Muestra el nombre del usuario  -->
+				<h2 id="user"></h2>
+				<!-- Muestra los puntos que llevas -->
+				<div class="points">
+					<div class="datos" style="visibility: hidden;">
+						<!-- Muestra el número de movimientos -->
+						<p>Numero de jugadas: <span id="jugadas"></span></p>
+						<!-- Muestra el tiempo desde que se dió inicio -->
+						<p>Tiempo: <span id="minutos">00</span>:<span id="segundos">00</span></p>
+					</div>
+				</div>
+				<div class="vidas">
+					<div id="vidas" class="row">
+						<div class="col-2">
+							<img src="/static/img/feliz.png" alt="Nervioso" class="vida-img">
+						</div>
+						<div class="col-2">
+							<img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+						</div>
+						<div class="col-2">
+							<img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+						</div>
+						<div class="col-2">
+							<img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+						</div>
+						<div class="col-2">
+							<img src="{% static 'img/feliz.png' %}" alt="Nervioso" class="vida-img">
+						</div>
+					</div>
+					<!-- Control de pausa y reinicio -->
+					<div class="controls">
+						<!-- Botón de pausa -->
+						<a type="button" class="btn btn-success" id="pause">Pausa</a>
+						<br>
+						<!-- Botón de reinicio -->
+						<a href="" id="return" type="button" class="btn btn-danger">Reinicio</a>
+						<!-- <a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Reinicio</a> -->
+					</div>
+				</div>
+			</div>
+			<!-- Pantalla de juego pausado -->
+			<div id="pauseFace">
+				<h2>Juego Pausado</h2>
+				<!-- Botón de continuar con el juego -->
+				<a type="button" class="btn btn-success" id="resume">Continuar</a>
+			</div>
+
+
+			<!-- No pueden jugar porque ya usaron los 5 intentos -->
+			<div id="sin_intentos">
+				<h2>Nos vemos a la próxima</h2>
+				<img src="{% static 'img/feliz.png' %}" alt="Triste" class="sentimiento-img">
 				<br>
-				<!-- Seleccionar con cuántos aros se jugará -->
-				<p>¿Con cuántos aros deseas jugar?</p>
-				<div class="form-group">
-					<div class="container">
-						<select class="custom-select" required id="select_aros">
-							<option value="">Selecciona el número de aros</option>
-							<option value="uno">Uno (1)</option>
-							<option value="dos">Dos (2)</option>
-							<option value="tres">Tres (3)</option>
-							<option value="cuatro">Cuatro (4)</option>
-							<option value="cinco">Cinco (5)</option>
-							<option value="seis">Seis (6)</option>
-							<option value="siete">Siete (7)</option>
-							<option value="ocho">Ocho (8)</option>
-						</select>
+				<a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Salir</a>
+			</div>
+
+			<!-- Pantalla de ganador -->
+			<div id="winFace">
+				<h2 style="font-family: torre; width: 80vw;">¡Felicitaciones!</h2>
+
+				<!-- Muestra los resultados -->
+				<div class="result">
+					<!-- Muestra el tiempo que se tardó en resolver el juego -->
+					<div class="tiempo">
+						<h3>Tiempo</h3>
+						<p id="time"></p>
+					</div>
+					<!-- Muestra el número de movimientos que realizó -->
+					<div class="jugadas">
+						<h3>Jugadas</h3>
+						<p id="moves"></p>
 					</div>
 				</div>
-			</form>
+				<!-- <a id="return" type="button" class="btn btn-primary">Mismo</a> -->
+				<a href="" id="return" type="button" class="btn btn-primary">Volver a Jugar</a>
+				<!-- <a href="{% url 'index' %}" type="button" class="btn btn-info">Volver a Jugar</a> -->
+			</div>
 
-			<!-- Sentimientos  -->
-			<p>¿Cómo te sientes?</p>
-			<form class="was-validated">
-				<div class="row">
-					<div class="custom-control custom-radio col">
-						<label>
-							<input class="form-check-input" type="radio" name="sentimiento_name" id="feliz"
-								value="Feliz">
-							<img src="{% static 'img/feliz.png' %}" alt="Feliz" class="sentimiento-img">
-							<br>
-							<label class="form-check-label" for="feliz">
-								Feliz
-							</label>
-						</label>
-					</div>
-					<div class="custom-control custom-radio col">
-						<label>
-							<input class="form-check-input" type="radio" name="sentimiento_name" id="triste"
-								value="Triste">
-							<img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
-							<br>
-							<label class="form-check-label" for="triste">
-								Triste
-							</label>
-						</label>
-					</div>
-					<div class="custom-control custom-radio col">
-						<label>
-							<input class="form-check-input" type="radio" name="sentimiento_name" id="enojado"
-								value="Enojado">
-							<img src="{% static 'img/enojado.png' %}" alt="Enojado" class="sentimiento-img">
-							<br>
-							<label class="form-check-label" for="enojado">
-								Enojado
-							</label>
-						</label>
-					</div>
-					<div class="custom-control custom-radio col">
-						<label>
-							<input class="form-check-input" type="radio" name="sentimiento_name" id="nervioso"
-								value="Nervioso">
-							<img src="{% static 'img/nervioso.png' %}" alt="Nervioso" class="sentimiento-img">
-							<br>
-							<label class="form-check-label" for="nervioso">
-								Nervioso
-							</label>
-						</label>
-					</div>
-					<div style="visibility: hidden;">
-						<label>
-							<input type="radio" class="custom-control-input" id="ola" name="sentimiento_name"
-								style="visibility: hidden;" required>
-						</label>
-					</div>
-				</div>
-				<!-- Botón de inicio -->
-			</form>
-			<a class="btn btn-primary" type="submit" id="start">JUGAR</a>
-		</div>
-	</div>
-
-	<!-- Juego -->
-	<div id="game">
-		<div id="juego">
-			<!-- Todos los aros -->
-			<div class="aro" id="drag1"></div>
-			<div class="aro" id="drag2"></div>
-			<div class="aro" id="drag3"></div>
-			<div class="aro" id="drag4"></div>
-			<div class="aro" id="drag5"></div>
-			<div class="aro" id="drag6"></div>
-			<div class="aro" id="drag7"></div>
-			<div class="aro" id="drag8"></div>
-			<!-- Todas las torres -->
-			<div class="tower" id="tower1">
-				<div class="torre"></div>
-			</div>
-			<div class="tower" id="tower2">
-				<div class="torre"></div>
-			</div>
-			<div class="tower" id="tower3">
-				<div class="torre"></div>
-			</div>
-			<div class="base">
-
-			</div>
 		</div>
 
-		<!-- Muestra el nombre del usuario  -->
-		<h2 id="user"></h2>
-		<!-- Muestra los puntos que llevas -->
-		<div class="points">
-			<div class="datos">
-				<!-- Muestra el número de movimientos -->
-				<p>Numero de jugadas: <span id="jugadas"></span></p>
-				<!-- Muestra el tiempo desde que se dió inicio -->
-				<p>Tiempo: <span id="minutos">00</span>:<span id="segundos">00</span></p>
-			</div>
-			<!-- Control de pausa y reinicio -->
-			<div class="controls">
-				<!-- Botón de pausa -->
-				<a type="button" class="btn btn-success" id="pause">Pausa</a>
-				<br>
-				<!-- Botón de reinicio -->
-				<a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Reiniciar</a>
-			</div>
-		</div>
 	</div>
-
-
-	<!-- Pantalla de juego pausado -->
-	<div id="pauseFace">
-		<h2>Juego Pausado</h2>
-		<!-- Botón de continuar con el juego -->
-		<a type="button" class="btn btn-success" id="resume">Continuar</a>
-	</div>
-
-
-	<!-- No pueden jugar porque ya usaron los 5 intentos -->
-	<div id="sin_intentos">
-		<h2>Ya usaste todos tus intentos</h2>
-		<img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
-		<a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Salir</a>
-	</div>
-
-	<!-- Pantalla de ganador -->
-	<div id="winFace">
-		<h2>¡Felicitaciones!</h2>
-		<!-- Muestra los resultados -->
-		<div class="result">
-			<!-- Muestra el tiempo que se tardó en resolver el juego -->
-			<div class="tiempo">
-				<h3>Tiempo</h3>
-				<p id="time"></p>
-			</div>
-			<!-- Muestra el número de movimientos que realizó -->
-			<div class="jugadas">
-				<h3>Jugadas</h3>
-				<p id="moves"></p>
-			</div>
-		</div>
-		<a href="{% url 'index' %}" type="button" class="btn btn-info">Volver a Jugar</a>
-	</div>
-
 	<script type="text/javascript" src="{% static 'lib/jquery.js' %}"></script>
 	<script type="text/javascript" src="{% static 'lib/jquery-ui.min.js' %}"></script>
 

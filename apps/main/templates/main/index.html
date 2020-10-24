@@ -256,7 +256,9 @@
                         <a type="button" class="btn btn-success" id="pause">Pausa</a>
                         <br>
                         <!-- Botón de reinicio -->
-                        <a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Reinicio</a>
+						<a href="" id="return" type="button" class="btn btn-danger">Reinicio</a>
+
+                        <!-- <a href="{% url 'index' %}" type="button" class="btn btn-danger" id="restart">Reinicio</a> -->
                     </div>
                 </div>
             </div>
@@ -278,7 +280,7 @@
 
             <!-- Pantalla de ganador -->
             <div id="winFace">
-                <h2 style="font-family: torre;">¡Felicitaciones!</h2>
+                <h2 style="font-family: torre; width: 80vw;">¡Felicitaciones!</h2>
 
                 <!-- Muestra los resultados -->
                 <div class="result">
@@ -293,7 +295,8 @@
                         <p id="moves"></p>
                     </div>
                 </div>
-                <a href="{% url 'index' %}" type="button" class="btn btn-info">Volver a Jugar</a>
+                <a href="" id="return" type="button" class="btn btn-primary">Volver a Jugar</a>
+                <!-- <a href="{% url 'index' %}" type="button" class="btn btn-info">Volver a Jugar</a> -->
             </div>
 
         </div>

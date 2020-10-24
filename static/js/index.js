@@ -287,6 +287,22 @@ $(function () {
 
   // Cuando se da click en el botón start
   $("#start").click(function () {
+
+
+    if (!ok_sentimiento) {
+      alert("Por favor ingrese una emoción");
+      boing.play();
+      return;
+    }
+    numberOfHoops = hoopsPerLevel[lv];
+    // Si la cantidad de aros no ha sido ingresado
+    if (!numberOfHoops) {
+      alert("Por favor, primero seleccione un nivel");
+      boing.play();
+      return;
+    }
+    hideMainScreen();
+    hideTutorialScreen();
     let f_ultimo_intento;
     let c_fecha = [];
     let c_intento = [];
@@ -402,6 +418,141 @@ $(function () {
     }
 
   });
+
+  $("#start2").click(function () {
+
+    usuario = document.getElementById("nombrenuevo").innerHTML;
+    console.log(usuario);
+    if (!ok_sentimiento) {
+      alert("Por favor ingrese una emoción");
+      boing.play();
+      return;
+    }
+    numberOfHoops = hoopsPerLevel[lv];
+    // Si la cantidad de aros no ha sido ingresado
+    if (!numberOfHoops) {
+      alert("Por favor, primero seleccione un nivel");
+      boing.play();
+      return;
+    }
+    hideMainScreen();
+    hideTutorialScreen();
+    let f_ultimo_intento;
+    let c_fecha = [];
+    let c_intento = [];
+    let c_juego = [];
+    for (let r = 0; r < juegox.length; r++) {
+      if (juegox[r].nombre.toUpperCase() == usuario.toUpperCase()) {
+        c_intento.push(juegox[r].intento);
+        c_juego.push(juegox[r].n_juego);
+        c_fecha.push(juegox[r].fecha);
+      }
+    }
+    intentos = c_intento[c_intento.length - 1] + 1;
+    n_juego = c_juego[c_juego.length - 1];
+    f_ultimo_intento = c_fecha[c_fecha.length - 1];
+
+    // Control de diferencia de fechas
+    var f = new Date();
+    let f_dif = f.setDate(f.getDate() - 7);
+    f_dif = new Date(f_dif);
+    let anio_dif = f_dif.toLocaleString("en-US", { year: "numeric" });
+    let mes_dif = f_dif.toLocaleString("en-US", { month: "numeric" });
+    let dia_dif = f_dif.toLocaleString("en-US", { day: "numeric" });
+    if (mes_dif < 10) mes_dif = `0${mes_dif}`;
+    if (dia_dif < 10) dia_dif = `0${dia_dif}`;
+    f_dif = anio_dif + "-" + mes_dif + "-" + dia_dif;
+
+
+
+    // Variable que controla la diferencia entre hoy y 7 días
+    let fd = new Date(f_dif);
+    // Variable para controlar la fecha del último intento
+    let fu;
+    if (c_fecha.length == 0) {
+      fu = fd;
+    }
+    else {
+      fu = new Date(f_ultimo_intento.split(" ")[0]);
+    }
+
+    // Si el último intento fue antes de la diferencia de fechas
+    if (fu <= fd) {
+      intentos = 1;
+      n_juego = c_juego[c_juego.length - 1] + 1;
+
+    }
+    if (c_intento.length == 0) {
+      intentos = 1;
+    }
+    if (c_juego.length == 0) {
+      n_juego = 1;
+    }
+
+
+
+    let htmlx = "";
+    htmlx += '<div id="vidas" class="row">';
+    for (let index = 1; index < intentos; index++) {
+      if (intentos != 1) {
+        htmlx += '<div class="col-2">';
+        htmlx += '<img src="/static/img/muerto.png" class="vida-img">';
+        htmlx += '</div>';
+      }
+      else {
+        htmlx += '<div class="col-2">';
+        htmlx += '<img src="/static/img/feliz.png" class="vida-img">';
+        htmlx += '</div>';
+      }
+    }
+    for (let index = 0; index < (6 - intentos); index++) {
+      htmlx += '<div class="col-2">';
+      htmlx += '<img src="/static/img/feliz.png" class="vida-img">';
+      htmlx += '</div>';
+    }
+    htmlx += '</div>';
+
+    $("#vidas").html(htmlx);
+    console.log(intentos);
+    console.log(intentos);
+    console.log(n_juego);
+
+
+    // Se le asignan los datos a la torre 1
+    $("#tower1").data("data", {
+      // Posicionado a la izquierda
+      pos: "left",
+      // El valor máximo es el número de aros seleccionados
+      maxValue: numberOfHoops,
+      // Asigna el número de elementos (Aros) a partir de la siguiente función
+      // Donde se le pasa el número de aros escogidos por el usuario
+      elements: getDraggableElements(numberOfHoops)
+    });
+
+    let na = "";
+    for (let w = numberOfHoops; w >= 1; w--) {
+      if (w != numberOfHoops) {
+        na = w.toString() + "A," + na;
+      }
+      else {
+        na = w.toString() + "A" + na;
+      }
+    }
+    objeto_control = {
+      jugada: [0],
+      posicion: [na],
+      tiempo: [0]
+    }
+
+    if (intentos <= 5) {
+      startGame(lv);
+    }
+    else {
+      sin_intentos();
+    }
+
+  });
+
 });
 
 
@@ -457,6 +608,7 @@ function win(jugadas) {
 function startGame(level) {
   // Muestra el nombre del usuario
   $("#user").html("Hola " + usuario.split(" ", 1));
+  document.getElementById('return').setAttribute('href', '/' + usuario.split(" ", 1));
   // Muestra el número de jugadas
   $("#jugadas").html(jugadas);
   // Oculta la página principal
