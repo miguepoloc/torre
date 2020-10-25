@@ -37,7 +37,8 @@ class Children(models.Model):
     nombre_acudiente = models.CharField(max_length=200)
     telefono = models.CharField(max_length=200, blank=True, null=True)
     correo = models.EmailField(blank=True, null=True)
+    aros = models.IntegerField()
 
 
 def __str__(self):
-    return self.sexo
+    return self.nombre

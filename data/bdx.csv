@@ -1,4 +1,3 @@
-id,vinculador,nombre,sexo,fecha_nacimiento,edad,colegio,estrato,nombre_acudiente,telefono,correo,codigo,aros
 1,Sergio Terán,Adrian Hernández Castro,Masculino,4/6/2015,5,Francisco Javier de Garagoa,1,Eileen Castro Rangel,3015637990,castrorangele@gmail.com,ahc04,3
 2,Sergio Terán,Andres Felipe Arzuza Castro,Masculino,12/12/2014,5,Francisco Javier de Garagoa,1,Solenis Castro Rangel,3175749609,,afac12,3
 3,Heilen Vargas,Stefanny Narvaez Baños,Femenino,8/3/2014,6,Ciudadela educativa Cooedumag,3,Yulieth Paola Baños Casado,3174021311,paobanoscasado@gmail.com,snb08,3
@@ -67,8 +66,3 @@ id,vinculador,nombre,sexo,fecha_nacimiento,edad,colegio,estrato,nombre_acudiente
 66,Rafael Barras,Mathias Pacheco Hoyos,Masculino,24/5/2014,6,institución educativa distrital Rodrigo de Bastidas,1,Lorena Hoyos Tovar o Alexis Pacheco,3008528494,alexispacheco098@gmail.com,mph24,3
 67,Rafael Barras,Jhuliam Daniel Palencia Castro,Masculino,6/8/2014,6,Instituto Ariano,2,Keilla castro Vergara,3046728083,keilacastrojd@gmail.com,jdpc06,3
 68,Heilen Vargas,Maria Celeste Benavides Cantillo,Femenino,19/4/2014,6,Pablo Neruda,4,Alfredo Enrique Benavides Pacheco,3015776653,benavides_alfredo@hotmail.com,mcbc19,3
-69,H,Heilen Test,Femenino,20/08/1996,3,,,H,,,ht,3
-70,R,Rafa Test,Masculino,20/08/1996,3,,,R,,,rt,3
-71,Profe,Profe test,Femenino,20/08/1996,4,,,P,,,pt,3
-72,Migue,Migue Test,Masculino,20/08/1996,2,,,M,,,mt,3
-73,Danay,Danay Test,Femenino,20/08/1996,2,,,Danay,,,dt,3

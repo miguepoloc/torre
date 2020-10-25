@@ -19,7 +19,7 @@ var hoopsPerLevel = {
   ocho: 8
 };
 
-var numberOfHoops;
+var numberOfHoops = 3;
 
 // Variable de control de tiempo
 let control;
@@ -37,6 +37,7 @@ let segundos_jugadas = 0;
 var objeto_control = new Object();
 var total_time = 0;
 var usuario;
+var usuario_cod;
 // Cantidad de sentimientos
 var cantidad_sentimientos = document.getElementsByName("sentimiento_name").length;
 var lista_sentimientos = [];
@@ -168,7 +169,7 @@ var audio = document.getElementById("audio");
 // Función principal
 $(function () {
   // Variable que guarda la cantidad de aros seleccionados
-  let lv = "";
+  var lv = 3;
 
   // Cuando está en Pausa y se da click en el Botón de volver
   $("#resume").click(function () {
@@ -256,7 +257,8 @@ $(function () {
       boing.play();
       return;
     }
-    if (!(!lista_children.includes(usuario) || !lista_codigo.includes(usuario))) {
+    // if (!(!lista_children.includes(usuario) || !lista_codigo.includes(usuario))) {
+    if (!lista_codigo.includes(usuario)) {
       alert("Por favor ingrese el nombre correctamente");
       boing.play();
       return;
@@ -264,22 +266,23 @@ $(function () {
     for (let index = 0; index < lista_codigo.length; index++) {
 
       if (lista_codigo[index] == usuario) {
+        usuario_cod = usuario;
         usuario = lista_children[index];
       }
-
     }
     if (!ok_sentimiento) {
       alert("Por favor ingrese una emoción");
       boing.play();
       return;
     }
-    numberOfHoops = hoopsPerLevel[lv];
+    // numberOfHoops = hoopsPerLevel[lv];
+    console.log(numberOfHoops);
     // Si la cantidad de aros no ha sido ingresado
-    if (!numberOfHoops) {
-      alert("Por favor, primero seleccione un nivel");
-      boing.play();
-      return;
-    }
+    // if (!numberOfHoops) {
+    //   alert("Por favor, primero seleccione un nivel");
+    //   boing.play();
+    //   return;
+    // }
     hideMainScreen();
     showTutorialScreen();
   });
@@ -294,13 +297,14 @@ $(function () {
       boing.play();
       return;
     }
-    numberOfHoops = hoopsPerLevel[lv];
+    // numberOfHoops = hoopsPerLevel[lv];
+    console.log(numberOfHoops);
     // Si la cantidad de aros no ha sido ingresado
-    if (!numberOfHoops) {
-      alert("Por favor, primero seleccione un nivel");
-      boing.play();
-      return;
-    }
+    // if (!numberOfHoops) {
+    //   alert("Por favor, primero seleccione un nivel");
+    //   boing.play();
+    //   return;
+    // }
     hideMainScreen();
     hideTutorialScreen();
     let f_ultimo_intento;
@@ -320,7 +324,7 @@ $(function () {
 
     // Control de diferencia de fechas
     var f = new Date();
-    let f_dif = f.setDate(f.getDate() - 7);
+    let f_dif = f.setDate(f.getDate() - 5);
     f_dif = new Date(f_dif);
     let anio_dif = f_dif.toLocaleString("en-US", { year: "numeric" });
     let mes_dif = f_dif.toLocaleString("en-US", { month: "numeric" });
@@ -379,10 +383,6 @@ $(function () {
     htmlx += '</div>';
 
     $("#vidas").html(htmlx);
-    console.log(intentos);
-    console.log(intentos);
-    console.log(n_juego);
-
 
     // Se le asignan los datos a la torre 1
     $("#tower1").data("data", {
@@ -421,20 +421,31 @@ $(function () {
 
   $("#start2").click(function () {
 
-    usuario = document.getElementById("nombrenuevo").innerHTML;
+    usuario = document.getElementById("nombrenuevo").innerHTML.toUpperCase();
+
+
+    for (let index = 0; index < lista_codigo.length; index++) {
+      if (lista_codigo[index] == usuario) {
+        usuario_cod = usuario;
+        usuario = lista_children[index];
+      }
+    }
+
+    document.getElementById("nombrenuevo").innerHTML = usuario.split(" ", 1);
+
     console.log(usuario);
     if (!ok_sentimiento) {
       alert("Por favor ingrese una emoción");
       boing.play();
       return;
     }
-    numberOfHoops = hoopsPerLevel[lv];
+    // numberOfHoops = hoopsPerLevel[lv];
     // Si la cantidad de aros no ha sido ingresado
-    if (!numberOfHoops) {
-      alert("Por favor, primero seleccione un nivel");
-      boing.play();
-      return;
-    }
+    // if (!numberOfHoops) {
+    //   alert("Por favor, primero seleccione un nivel");
+    //   boing.play();
+    //   return;
+    // }
     hideMainScreen();
     hideTutorialScreen();
     let f_ultimo_intento;
@@ -513,9 +524,6 @@ $(function () {
     htmlx += '</div>';
 
     $("#vidas").html(htmlx);
-    console.log(intentos);
-    console.log(intentos);
-    console.log(n_juego);
 
 
     // Se le asignan los datos a la torre 1
@@ -559,7 +567,8 @@ $(function () {
 // Función para saber que ganó
 function validarVictoria(level, jugadas) {
   // Variable que almacena el número de aros
-  let aros;
+  let aros = 3;
+  level = "tres";
   // La forma de ganar según los diferentes niveles
   if (level == "uno") aros = 1;
   else if (level == "dos") aros = 2;
@@ -608,7 +617,7 @@ function win(jugadas) {
 function startGame(level) {
   // Muestra el nombre del usuario
   $("#user").html("Hola " + usuario.split(" ", 1));
-  document.getElementById('return').setAttribute('href', '/' + usuario.split(" ", 1));
+  document.getElementById('return').setAttribute('href', '/data/' + usuario_cod);
   // Muestra el número de jugadas
   $("#jugadas").html(jugadas);
   // Oculta la página principal
