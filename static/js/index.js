@@ -618,6 +618,7 @@ function startGame(level) {
   // Muestra el nombre del usuario
   $("#user").html("Hola " + usuario.split(" ", 1));
   document.getElementById('return').setAttribute('href', '/data/' + usuario_cod);
+  document.getElementById('return2').setAttribute('href', '/data/' + usuario_cod);
   // Muestra el número de jugadas
   $("#jugadas").html(jugadas);
   // Oculta la página principal
