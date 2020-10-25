@@ -268,7 +268,6 @@ body {
 .result {
 	display: flex;
 	justify-content: space-between;
-	width: 40vw;
 	margin-bottom: 65px;
 }
 
