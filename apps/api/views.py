@@ -7,11 +7,11 @@ from .models import Jugador, Children
 
 class JugadorViewSet(viewsets.ModelViewSet):
 
-    queryset = Jugador.objects.all()
+    queryset = Jugador.objects.all().order_by('id')
     serializer_class = JugadorSerializer
 
 
 class ChildrenViewSet(viewsets.ModelViewSet):
 
-    queryset = Children.objects.all()
+    queryset = Children.objects.all().order_by('id')
     serializer_class = ChildrenSerializer
