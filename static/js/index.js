@@ -226,17 +226,17 @@ $(function () {
 
   // Seleccionar el nivel del juego
   // Obtiene el valor del elemento Select_aros
-  var select_aros = document.getElementById('select_aros');
-  // Variable de selección
-  var selectedOption;
+  // var select_aros = document.getElementById('select_aros');
+  // // Variable de selección
+  // var selectedOption;
 
   // Cuando cambie de valor
-  select_aros.addEventListener('change',
-    function () {
-      selectedOption = this.options[select_aros.selectedIndex];
-      lv = selectedOption.value;
-    }
-  );
+  // select_aros.addEventListener('change',
+  //   function () {
+  //     selectedOption = this.options[select_aros.selectedIndex];
+  //     lv = selectedOption.value;
+  //   }
+  // );
 
   $('input[type=radio][name=sentimiento_name]').change(function () {
     sentimiento = this.value;
@@ -291,6 +291,7 @@ $(function () {
   // Cuando se da click en el botón start
   $("#start").click(function () {
 
+    document.getElementById("tuto").innerHTML = "";
 
     if (!ok_sentimiento) {
       alert("Por favor ingrese una emoción");

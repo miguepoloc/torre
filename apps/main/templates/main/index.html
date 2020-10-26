@@ -101,89 +101,71 @@
                                 required>
                         </div>
                         <br>
-                        <!-- Seleccionar con cuántos aros se jugará -->
-                        <!-- <p>¿Con cuántos aros deseas jugar?</p> -->
-                        <div class="form-group" style="visibility: hidden;">
-                            <div class="container">
-                                <select class="custom-select" required id="select_aros">
-                                    <!-- <option value="">Selecciona el número de aros</option>
-                                    <option value="uno">Uno (1)</option>
-                                    <option value="dos">Dos (2)</option>
-                                    <option value="tres">Tres (3)</option>
-                                    <option value="cuatro">Cuatro (4)</option>
-                                    <option value="cinco">Cinco (5)</option>
-                                    <option value="seis">Seis (6)</option>
-                                    <option value="siete">Siete (7)</option>
-                                    <option value="ocho">Ocho (8)</option> -->
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Sentimientos  -->
-                    <p>¿Cómo te sientes?</p>
-                    <form class="was-validated">
-                        <div class="row">
-                            <div class="custom-control custom-radio col">
-                                <label>
-                                    <input class="form-check-input" type="radio" name="sentimiento_name" id="feliz"
-                                        value="Feliz">
-                                    <img src="{% static 'img/feliz.png' %}" alt="Feliz" class="sentimiento-img">
-                                    <br>
-                                    <label class="form-check-label" for="feliz">
-                                        Feliz
+                        <!-- Sentimientos  -->
+                        <p>¿Cómo te sientes?</p>
+                        <form class="was-validated">
+                            <div class="row">
+                                <div class="custom-control custom-radio col">
+                                    <label>
+                                        <input class="form-check-input" type="radio" name="sentimiento_name" id="feliz"
+                                            value="Feliz">
+                                        <img src="{% static 'img/feliz.png' %}" alt="Feliz" class="sentimiento-img">
+                                        <br>
+                                        <label class="form-check-label" for="feliz">
+                                            Feliz
+                                        </label>
                                     </label>
-                                </label>
-                            </div>
-                            <div class="custom-control custom-radio col">
-                                <label>
-                                    <input class="form-check-input" type="radio" name="sentimiento_name" id="triste"
-                                        value="Triste">
-                                    <img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
-                                    <br>
-                                    <label class="form-check-label" for="triste">
-                                        Triste
+                                </div>
+                                <div class="custom-control custom-radio col">
+                                    <label>
+                                        <input class="form-check-input" type="radio" name="sentimiento_name" id="triste"
+                                            value="Triste">
+                                        <img src="{% static 'img/triste.png' %}" alt="Triste" class="sentimiento-img">
+                                        <br>
+                                        <label class="form-check-label" for="triste">
+                                            Triste
+                                        </label>
                                     </label>
-                                </label>
-                            </div>
-                            <div class="custom-control custom-radio col">
-                                <label>
-                                    <input class="form-check-input" type="radio" name="sentimiento_name" id="enojado"
-                                        value="Enojado">
-                                    <img src="{% static 'img/enojado.png' %}" alt="Enojado" class="sentimiento-img">
-                                    <br>
-                                    <label class="form-check-label" for="enojado">
-                                        Enojado
+                                </div>
+                                <div class="custom-control custom-radio col">
+                                    <label>
+                                        <input class="form-check-input" type="radio" name="sentimiento_name"
+                                            id="enojado" value="Enojado">
+                                        <img src="{% static 'img/enojado.png' %}" alt="Enojado" class="sentimiento-img">
+                                        <br>
+                                        <label class="form-check-label" for="enojado">
+                                            Enojado
+                                        </label>
                                     </label>
-                                </label>
-                            </div>
-                            <div class="custom-control custom-radio col">
-                                <label>
-                                    <input class="form-check-input" type="radio" name="sentimiento_name" id="nervioso"
-                                        value="Nervioso">
-                                    <img src="{% static 'img/nervioso.png' %}" alt="Nervioso" class="sentimiento-img">
-                                    <br>
-                                    <label class="form-check-label" for="nervioso">
-                                        Nervioso
+                                </div>
+                                <div class="custom-control custom-radio col">
+                                    <label>
+                                        <input class="form-check-input" type="radio" name="sentimiento_name"
+                                            id="nervioso" value="Nervioso">
+                                        <img src="{% static 'img/nervioso.png' %}" alt="Nervioso"
+                                            class="sentimiento-img">
+                                        <br>
+                                        <label class="form-check-label" for="nervioso">
+                                            Nervioso
+                                        </label>
                                     </label>
-                                </label>
+                                </div>
+                                <div style="visibility: hidden;">
+                                    <label>
+                                        <input type="radio" class="custom-control-input" id="ola"
+                                            name="sentimiento_name" style="visibility: hidden;" required>
+                                    </label>
+                                </div>
                             </div>
-                            <div style="visibility: hidden;">
-                                <label>
-                                    <input type="radio" class="custom-control-input" id="ola" name="sentimiento_name"
-                                        style="visibility: hidden;" required>
-                                </label>
-                            </div>
-                        </div>
-                        <!-- Botón de inicio -->
-                    </form>
-                    <a class="btn btn-primary" type="submit" id="tutorial">Tutorial</a>
+                            <!-- Botón de inicio -->
+                        </form>
+                        <a class="btn btn-primary" type="submit" id="tutorial">Tutorial</a>
                 </div>
             </div>
 
             <div id="tuto">
                 <div id="principal">
-                    <iframe id="frametuto" src="https://www.youtube.com/embed/IyGwvGzrqp8" frameborder="0"
+                    <iframe id="frametuto" src="https://www.youtube.com/embed/ZuoXqhRtAks" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
