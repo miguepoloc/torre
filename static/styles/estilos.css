@@ -219,6 +219,10 @@ body {
 	width: 14vh;
 }
 
+.logo2-img {
+	width: 33vh;
+}
+
 #inferior {
 	position: absolute;
 	/*El div será ubicado con relación a la pantalla*/
