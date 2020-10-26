@@ -250,6 +250,9 @@ $(function () {
   });
 
   $("#tutorial").click(function () {
+    $("#inferior").css({
+      transform: "scale(0)",
+    });
     usuario = $("#username").val().toUpperCase();
     // Si el nombre de usuario no ha sido ingresado
     if (!usuario) {

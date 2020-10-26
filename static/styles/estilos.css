@@ -184,7 +184,6 @@ body {
 	text-transform: uppercase;
 	transition: .4s;
 	height: 100vh;
-
 	margin: 0 auto;
 	border-radius: 50%;
 }
@@ -217,7 +216,22 @@ body {
 }
 
 .logo-img {
-	width: 12vh;
+	width: 14vh;
+}
+
+#inferior {
+	position: absolute;
+	/*El div será ubicado con relación a la pantalla*/
+	left: 0px;
+	/*A la derecha deje un espacio de 0px*/
+	right: 0px;
+	/*A la izquierda deje un espacio de 0px*/
+	bottom: 0px;
+	/*alto del div*/
+	z-index: 0;
+	text-align: center;
+	margin-bottom: 10px;
+	transform: scale(1);
 }
 
 .vida-img {
