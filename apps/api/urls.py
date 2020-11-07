@@ -5,6 +5,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'jugador', views.JugadorViewSet, "jugador")
 router.register(r'children', views.ChildrenViewSet, "children")
+router.register(r'descarga', views.DescargaViewSet, "descarga")
 
 
 urlpatterns = [

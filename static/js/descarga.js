@@ -1,6 +1,6 @@
 var dato_de;
 $.get(
-    '/api/jugador/',
+    '/api/descarga/',
     function (data) {
         console.log(data);
         var lista_csv = [];
