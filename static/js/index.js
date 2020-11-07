@@ -426,8 +426,8 @@ $(function () {
 
   $("#start2").click(function () {
 
+    let usuariox = document.getElementById("nombrenuevox").innerHTML.toUpperCase();
     usuario = document.getElementById("nombrenuevo").innerHTML.toUpperCase();
-
 
     for (let index = 0; index < lista_codigo.length; index++) {
       if (lista_codigo[index] == usuario) {
@@ -436,7 +436,7 @@ $(function () {
       }
     }
 
-    document.getElementById("nombrenuevo").innerHTML = usuario.split(" ", 1);
+    document.getElementById("nombrenuevox").innerHTML = usuariox.split(" ", 1);
 
     console.log("Usuario: " + usuario);
     if (!ok_sentimiento) {
