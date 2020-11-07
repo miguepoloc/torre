@@ -254,6 +254,7 @@ $(function () {
       transform: "scale(0)",
     });
     usuario = $("#username").val().toUpperCase();
+    console.log("Usuario: " + usuario);
     // Si el nombre de usuario no ha sido ingresado
     if (!usuario) {
       alert("Por favor ingrese un nombre");
@@ -267,19 +268,19 @@ $(function () {
       return;
     }
     for (let index = 0; index < lista_codigo.length; index++) {
-
       if (lista_codigo[index] == usuario) {
         usuario_cod = usuario;
         usuario = lista_children[index];
       }
     }
+    console.log("Usuario: " + usuario);
+
     if (!ok_sentimiento) {
       alert("Por favor ingrese una emoción");
       boing.play();
       return;
     }
     // numberOfHoops = hoopsPerLevel[lv];
-    console.log(numberOfHoops);
     // Si la cantidad de aros no ha sido ingresado
     // if (!numberOfHoops) {
     //   alert("Por favor, primero seleccione un nivel");
@@ -302,7 +303,6 @@ $(function () {
       return;
     }
     // numberOfHoops = hoopsPerLevel[lv];
-    console.log(numberOfHoops);
     // Si la cantidad de aros no ha sido ingresado
     // if (!numberOfHoops) {
     //   alert("Por favor, primero seleccione un nivel");
@@ -322,6 +322,7 @@ $(function () {
         c_fecha.push(juegox[r].fecha);
       }
     }
+    console.log(juegox);
     intentos = c_intento[c_intento.length - 1] + 1;
     n_juego = c_juego[c_juego.length - 1];
     f_ultimo_intento = c_fecha[c_fecha.length - 1];
@@ -437,7 +438,7 @@ $(function () {
 
     document.getElementById("nombrenuevo").innerHTML = usuario.split(" ", 1);
 
-    console.log(usuario);
+    console.log("Usuario: " + usuario);
     if (!ok_sentimiento) {
       alert("Por favor ingrese una emoción");
       boing.play();
@@ -868,6 +869,5 @@ function controlador() {
       "tiempo_total": segundos / 100
     }
   });
-  console.log(objeto_control);
 }
 

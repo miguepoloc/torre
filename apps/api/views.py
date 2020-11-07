@@ -7,7 +7,7 @@ from .models import Jugador, Children
 
 class JugadorViewSet(viewsets.ModelViewSet):
 
-    queryset = Jugador.objects.all().order_by('id')
+    queryset = Jugador.objects.all().order_by('nombre')
     serializer_class = JugadorSerializer
 
 

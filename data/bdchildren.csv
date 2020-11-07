@@ -1,0 +1,81 @@
+id,vinculador,nombre,sexo,fecha_nacimiento,edad,colegio,estrato,nombre_acudiente,telefono,correo,codigo,aros
+74,h,Heilen 2,Femenino,20/08/1996,2,,,h,,,h,3
+75,r,Rafa 2,Masculino,20/08/1996,2,,,R,,,r,3
+80,m,m,Masculino,20/08/1996,2,,,m,,,m,3
+12,Infancia G1,Sara Elena Orozco,Femenino,29/8/2014,6,Futuro sabio/ barranquilla  ,4,Pedro Ivan Orozco Cury - Carolina Gamez,3016776474,,seo29,3
+13,Infancia G1,Saireth Sofía Olivella Álvarez,Femenino,10/10/2014,6,Institución Educativa Luis Rodríguez Valera los Venados/ Valledupar (César) ,1,Francia Elena Alvarez  ,3107028640,francia200933@gmail.com ,ssoa10,3
+14,Infancia G1,Luz Gabriela Alegría Sandoval,Femenino,9/10/2013,7,Centro Educativo Galicia/ Santa Marta (Magdalena) ,3,Lissette Sandoval Garrido  ,3046741677,Lissettecarolina09@gmail.com ,lgas09,3
+32,Lbustamante,ISABEL SOFIA MERCADO FERNANDEZ,Femenino,7/1/2015,5,INSTITUTO LEV VIGOSTKY,2,ANGÉLICA FERNÁNDEZ ROJANO ARMANDO MERCADO GALINDO,3006014389,ANGELIKFERNANDEZ22@GMAIL.COM,ismf07,3
+38,Lbustamante,Rouss Michel Vargas Herazo,Femenino,10/4/2014,6,Centro Educativo Rafael Núñez ,1,Allison Herazo Ferreira ,3012632535,alli.herazo.fe@gmail.ccom,rmvh10,3
+41,Lbustamante,María De Los Angeles Granados Acosta,Femenino,24/2/2014,6,Normal María Auxiliadora,4,Sarah Acosta Márquez ,3006578588,sarahacosta_1@hotmail.com,mdlaga24,3
+76,mc,mc test,Masculino,20/08/1996,1,,,mc,,,mc,3
+77,lb,lb test,Masculino,20/08/1996,2,,,lb,,,lb,3
+1,Sergio Terán,Adrian Hernández Castro,Masculino,4/6/2015,5,Francisco Javier de Garagoa,1,Eileen Castro Rangel,3015637990,castrorangele@gmail.com,ahc04,3
+2,Sergio Terán,Andres Felipe Arzuza Castro,Masculino,12/12/2014,5,Francisco Javier de Garagoa,1,Solenis Castro Rangel,3175749609,,afac12,3
+3,Heilen Vargas,Stefanny Narvaez Baños,Femenino,8/3/2014,6,Ciudadela educativa Cooedumag,3,Yulieth Paola Baños Casado,3174021311,paobanoscasado@gmail.com,snb08,3
+4,Heilen Vargas,Isabella Ujueta Ortiz,Femenino,25/12/2013,6,Escuela Normal Superior María Auxiliadora,3,Ana Lucia Ortiz,3015446513,linerocamila@gmail.com,iuo25,3
+5,Heilen Vargas,Jean Paul Pérez Matheus,Masculino,22/2/2014,6,INEM Simón Bolivar,2,Angelys Del Carmen Matheus Romero,3046342099,Angelis.romero30@gmail.com,jppm22,3
+6,ECerchiaro,Joshua Obispo Franco,Masculino,1/5/2015,5,Jardín infantil el prado,4,Larry José Obispo Salazar,3013685343,larryobispo@gmail.com,jpf01,3
+7,ECerchiaro,Daniel Arturo Donado Brito,Masculino,6/8/2015,5,Hogar Infantil Mamatoco,2,Daniela Brito Ceballos,3016729466,,dadb06,3
+8,ECerchiaro,Marco Antonio Cerchiaro Orejarena,Masculino,15/10/2013,7,Colegio Elisa Diazgranados,3,Teolinda Orejarena,3006151700,teooreja2006@hotmail.com,maco15,3
+9,ECerchiaro,Caleb Santiago Cárdenas Meza,Masculino,21/11/2014,5,Sagrada Familia - Ciénaga ,2,Diana Meza,3046014098,dianime@gmail.com,cscm21,3
+10,ECerchiaro,María Antonia Ortega De la Hoz,Femenino,4/9/2015,5,Colegio San Bartolomé,4,Nelsa De la Hoz,3115928835,nelsadelahoz@gmail.com,maodlh04,3
+11,EduardoMtnez - Infancia G1,James Ardila Camaño,Masculino,30/10/2014,5,Instituto Cristiano Getsemaní,1,Ingris Esthela Ardila Camaño,3177809152,Jenis31@hotmail.com,jac30,3
+15,Esteban Fontalvo,Ángel David Cruz Carrasquilla,Masculino,7/1/2015,5, Colegio cristiano Hefziba beula,2,Laura Cruz Carrasquilla,3205737097,,adcc07,3
+16,Anyelly Muriel,Darela Sofía Manjarrez Suarez,Femenino,1/10/2014,6,Pilar Antonio Ojeda - (Maicao-la guajira),2,Elaine Suarez,3053445048,,dsms01,3
+17,Anyelly Muriel,Isabella Mier Castro,Femenino,8/12/2014,5,Espíritu santo (santa marta),3,Andrea Castro,3046165927,,imc08,3
+18,Anyelly Muriel,David Luis Abuchaibe Mejía,Masculino,29/5/2015,5,Centro infantil mundo del saber(Maicao-la guajira),1,Johana Mejía Henao,3022442781,,dlam29,3
+19,Anyelly Muriel,Liam Santiago Mestra Vega,Masculino,24/11/2014,5,Jose domingo boscan (Maicao-la guajira),3,Ledis Cuesta Zúñiga,3003560342,,lsmv24,3
+20,Anyelly Muriel,Juan Sebastián Julio Cuesta,Masculino,19/11/2015,4,Jose domingo boscan (Maicao-la guajira),3,Alix Cuesta Zúñiga,3043691655,,jsjc19,3
+21,Anyelly Muriel,Dannia Sofía Tete Gonzales,Femenino,11/8/2015,5,CDI: mi primera sonrisa (Maicao-la guajira),2,Daniela Tete,3042499217,,dstg11,3
+22,Anyelly Muriel,Marco Andrés Rojas Socorro,Masculino,29/1/2014,6,Santo tomas de Aquino (Cartagena),4,María Socorro,3168232511,,mars29,3
+23,Anyelly Muriel,Marian Sharit Pérez Gómez,Femenino,25/5/2014,6,Gabriel Garcia (Maicao-la guajira),1,Lina Gómez,3183342585,,mspg25,3
+24,Anyelly Muriel,Ezequiel David Brito López,Masculino,18/3/2014,6,Cedphu (Maicao-la guajira),2,Ivanma López,3017896617,,edbl18,3
+25,Anyelly Muriel,Elías Jose Brito López,Masculino,18/3/2014,6,Cedphu (Maicao-la guajira),2,Ivanma López,3017896617,,ejbl18,3
+26,Breidis Curiel,Ostin Ávila,Masculino,27/12/2014,5,IED Edgardo Vives,1,Sol Pérez,3004273807,,oa27,3
+27,Breidis Curiel,Diego Tovar,Masculino,22/7/2015,5,IED Olivos Sede 1,1,Dina Tovar,3045749693,,dt22,3
+28,Breidis Curiel,Benjamín Esqueda,Masculino,24/11/2014,5,IED Jacqueline Kennedy,1,Yoana Lugo,3196955434,,be24,3
+29,Breidis Curiel,Angélica Orellano,Femenino,4/12/2015,4,IED Edgardo Vives,1,Samir Orellano,3043508594,,ao04,3
+30,Breidis Curiel,Eiden Pérez,Masculino,24/12/2014,5,IED Edgardo Vives,1,Johan Pérez,3158005140,,ep24,3
+31,Breidis Curiel,Yeifer Bolaños,Masculino,1/10/2015,5,IED Olivos Sede 1,1,Alejandro Bolaños,3013082615,,yb01,3
+33,Lbustamante,ANGIE TATIANA RIVERA SIZA,Femenino,5/12/2015,4,INSTITUTO LEV VIGOSTKY,2,LUIS ALBEIRO RIVERA ORDUZ - LEIDY KARINA SIZA APARICIO,3142129166,KARINASIZA22@YAHOO.COM.CO,atrs05,3
+34,Lbustamante,IVAN DAVID MARTINEZ BELEÑO,Masculino,12/1/2015,5,INSTITUTO LEV VIGOSTKY,2,ÁLVARO ANTONIO MARTÍNEZ TERRAZA Y KAREN LOREING BELEÑO GUILLÉN,3175167909,CONTADORBG@GMAIL.COM,idmb12,3
+35,Lbustamante,THIAGO GONZALES BARONA,Masculino,14/6/2014,6,INSTITUTO LEV VIGOSTKY,2,"NURYS BARONA, ANUAR GONZÁLEZ ",3138426005,NUELBATA23@HOTMAIL.COM,tgb14,3
+36,Lbustamante,MARGGY ARDILA GUZMAN,Femenino,28/2/2015,5,INSTITUTO LEV VIGOSTKY,2,ROGER ARDILA MEJÍA - YULIETH MILENA GUZMA GALVAN,3113608925,YULIETH.GUZMAN29@HMAIL.COM,mag28,3
+37,Lbustamante,EMMANUEL DE LUQUE CONRADO,Masculino,1/5/2014,6,INSTITUTO LEV VIGOSTKY,1,MAIRENE CONRADO FONTALVO - OMAR ALFONSO DE LUQUE MONTOYA,3006512753,MAIRENECONRADO5@GMAIL.COM,edlc01,3
+39,Lbustamante,LUCIANO TADEO LINARES BUSTAMANTE,Masculino,21/9/2013,7,Colegio Americano del Caribe,3,Lucia Bustamante Meza,3166542394,lbustamante@unimagdalena.edu.co,ltlb21,3
+40,Lbustamante,Irina Zoeth Hurtado López,Femenino,17/7/2014,6,Escuela Normal María Auxiliadora.,3,Libis López García,3107437204,lopezlibis@gmail.com,izhl17,3
+42,Lbustamante,Salma Collantes Prado,Femenino,18/10/2013,7,IED NORMAL SUPERIOR MARIA AUXILIADORA,3,YEIMI PRADO BETANCURTH,3012619599,yeprado85@hotmail.com,scp18,3
+78,va,va test,Masculino,20/08/1996,2,,,va,,,va,3
+43,Lbustamante,ORIANA RUIZ PARDO,Femenino,4/11/2014,5,IED ESCUELA NORMAL SUPERIOR MARIA AUXILIADORA,4,KATHERINE PARDO FONTALVO,3004355300,katherinepardofontalvo@gmail.com,orp04,3
+44,Lbustamante,Mariana Sofía Ariza Gutiérrez,Femenino,16/4/2014,6,María auxiliadora,2,Martha Gutiérrez Hernandez,3005139465,martha_ghz@hotmail.com,msag16,3
+45,Lbustamante,Salomé Tatiana Padilla De La Hoz,Femenino,18/12/2013,6,Normal María Auxiliadora,3,Juan Carlos Padilla Padilla,3043397103,juankpadilla@hotmail.com,stpdlh18,3
+47,Lbustamante,Lucía Peña de la cruz,Femenino,11/9/2013,7,Normal superior maría auxiliadora ,3,Iván Peña serrano,3004816048,Estefania9105@hotmail.com,lpdlc11,3
+48,Lbustamante,Amanda sofia Bolaño Garcia,Femenino,17/7/2014,6,Normal de señoritas,3,Patricia Garcia,3012233471,paelgadu@gmail.com,asbg17,3
+49,Lbustamante,Keily Johana Arregoces León,Femenino,17/3/2014,6,Escuela Normal María Auxiliadora,3,Emilse León,3135159416,emilse_np@hotmail.com,kjal17,3
+50,Lbustamante,Luis Arregoces León,Masculino,6/2/2015,5,Jardín,3,Nilson Arregoces,3004692963,emilse_np@hotmail.com,lal06,3
+52,Lbustamante,Ivan Enrique Becerra Camargo,Masculino,10/3/2014,6,IED 11 de Noviembre Sede 3,2,Dayana Milena Camargo Calvo,3004708848,dcamargocalvo@gmail.com,iebc10,3
+53,Melba Instituto Midia leonor,Isabel Sofía Restrepo Arias,Femenino,18/2/2014,6,Instituto Midia Leonor Castellón de Sánchez,3,Carlos Mario Restrepo de la Hoz,3006365463,carso91@hotmail.com,isra18,3
+54,Melba Instituto Midia leonor,Valeria Sofía Álvarez Ortega,Femenino,15/4/2015,5,Instituto Midia Leonor Castellón de Sánchez,3,Yamile Ortega Castellón,3006846411,silref_1986@hotmail.com,vsao15,3
+55,Melba Instituto Midia leonor,Luciana Sofía González Daza,Femenino,20/8/2014,6,Instituto Midia Leonor Castellón de Sánchez,3,Mildreth Johana Daza Ceballos,3187271210,midace8421@hotmail.com,lsgd20,3
+56,Melba Instituto Midia leonor,Luis Eduardo Morón Contreras,Masculino,8/12/2015,4,Instituto Midia Leonor Castellón de Sánchez,3,Wendy Morón Contreras,3173569950,wendimoronyc@unimagdalena.edu.com,lemc08,3
+57,Melba Instituto Midia leonor,Andrés David Molina Bayona,Masculino,10/8/2014,6,Instituto Midia Leonor Castellón de Sánchez,3,María Angélica Bayona Charris,3135652940,angelicabayonacharris@gmail.com,admb10,3
+58,Melba Instituto Midia leonor,Hellen Noemi Camargo Torres,Femenino,28/4/2015,5,Instituto Midia Leonor Castellón de Sánchez,3,Yulieth Paola Torres Rodríguez,3008905503,,hnct28,3
+59,Melba Instituto Midia leonor,Oscar David Isaza Granado,Masculino,24/5/2015,5,Instituto Midia Leonor Castellón de Sánchez,3,Juanita Granados vasquez,3007326654,,odig24,3
+60,Melba Instituto Midia leonor,Samuel David Guerrero Jimènez,Masculino,23/10/2015,5,Instituto Midia Leonor Castellón de Sánchez,3,Dora Beatriz Jimenez Caballero - Cristian Guerraro,3002247703,,sdgj23,3
+61,Melba Instituto Midia leonor,Samuel David Pacheco Florez,Masculino,6/11/2015,4,Instituto Midia Leonor Castellón de Sánchez,3,Eliana Florez Díaz,3008352100,eflorezdiaz@hotmail.com,sdpf06,3
+62,Melba Instituto Midia leonor,Cesar Samuel Fernández Sierra,Masculino,5/8/2015,5,Instinto Midia Leonor Castellón de Sánchez,3,Boris del Valle Sierra Castellanos,3042061499,,csfs05,3
+63,Mafe Cabas,Daniel Coba Vargas,Masculino,8/9/2014,6,,4,Damian Coba - Liliana Vargas Mendoza,3157514861,lilianavargas3072@hotmail.com,dcv08,3
+64,Rafael Barras,Thiago Luis Medina Hernández,Masculino,15/12/2014,5,instituto educativo Juan XVIII,3,Paula andrea Medina Hernández ,3005236142,paulaandreamedina30.gmail.com,tlmh15,3
+65,Rafael Barras,Maikel Nikel Villalobos,Masculino,11/3/2015,5,Colegio Santiago Marquez,2,Diana patricia Villalobos,3116533559,,mnv11,3
+66,Rafael Barras,Mathias Pacheco Hoyos,Masculino,24/5/2014,6,institución educativa distrital Rodrigo de Bastidas,1,Lorena Hoyos Tovar o Alexis Pacheco,3008528494,alexispacheco098@gmail.com,mph24,3
+67,Rafael Barras,Jhuliam Daniel Palencia Castro,Masculino,6/8/2014,6,Instituto Ariano,2,Keilla castro Vergara,3046728083,keilacastrojd@gmail.com,jdpc06,3
+68,Heilen Vargas,Maria Celeste Benavides Cantillo,Femenino,19/4/2014,6,Pablo Neruda,4,Alfredo Enrique Benavides Pacheco,3015776653,benavides_alfredo@hotmail.com,mcbc19,3
+69,H,Heilen Test,Femenino,20/08/1996,3,,,H,,,ht,3
+70,R,Rafa Test,Masculino,20/08/1996,3,,,R,,,rt,3
+71,Profe,Profe test,Femenino,20/08/1996,4,,,P,,,pt,3
+72,Migue,Migue Test,Masculino,20/08/1996,2,,,M,,,mt,3
+73,Danay,Danay Test,Femenino,20/08/1996,2,,,Danay,,,dt,3
+79,bg,bg test,Masculino,20/08/1996,2,,,bg,,,bg,3
+46,Lbustamante,Isabella Tovar Rodríguez,Femenino,7/5/2014,6,Escuela normal superior María auxiliadora,3,Adriana Margarita Rodriguez mendoza ,3007403618,Adrirome0509@gmail.com,itr07,3
+51,Lbustamante,Mairith Campo Peralta,Femenino,30/3/2014,6,Escuela Normal María Auxiliadora ,3,Yovelis Peralta ,3004871982,yovelis1103@hotmail.com,mcp30,3
