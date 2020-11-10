@@ -38,6 +38,7 @@ var objeto_control = new Object();
 var total_time = 0;
 var usuario;
 var usuario_cod;
+var usuario_id;
 // Cantidad de sentimientos
 var cantidad_sentimientos = document.getElementsByName("sentimiento_name").length;
 var lista_sentimientos = [];
@@ -134,6 +135,8 @@ $.ajaxSetup({
 // USUARIOS
 var lista_children = [];
 var lista_codigo = [];
+var lista_id = [];
+
 
 $.get(
   '/api/children/',
@@ -142,6 +145,8 @@ $.get(
     for (let q = 0; q < data.length; q++) {
       lista_children.push(data[q].nombre.toUpperCase())
       lista_codigo.push(data[q].codigo.toUpperCase())
+      lista_id.push(data[q].id)
+
     }
   }
 );
@@ -271,6 +276,7 @@ $(function () {
       if (lista_codigo[index] == usuario) {
         usuario_cod = usuario;
         usuario = lista_children[index];
+        usuario_id = lista_id[index];
       }
     }
     console.log("Usuario: " + usuario);
@@ -433,6 +439,7 @@ $(function () {
       if (lista_codigo[index] == usuario) {
         usuario_cod = usuario;
         usuario = lista_children[index];
+        usuario_id = lista_id[index];
       }
     }
 
@@ -858,6 +865,28 @@ function controlador() {
     data: {
       "nombre": usuario,
       "fecha": "",
+      "n_juego": n_juego,
+      "intento": intentos,
+      "error": error,
+      "n_error": n_error,
+      "sentimiento": sentimiento,
+      "movimiento": jugadas,
+      "tiempo_entre_movimiento": segundos_jugadas / 100,
+      "posicion": vtorres,
+      "tiempo_total": segundos / 100
+    }
+  });
+
+  var hoy = new Date();
+  hoy = hoy.getFullYear() + "-" + (hoy.getMonth() + 1) + "-" + hoy.getDate() + " " + hoy.getHours() + ":" + hoy.getMinutes() + ":" + hoy.getSeconds();
+  $.ajax({
+    type: "PUT",
+    url: "/api/ultimo/" + usuario_id + "/",
+    data: {
+      "id": usuario_id,
+      "codigo": usuario_cod,
+      "nombre": usuario,
+      "fecha": hoy,
       "n_juego": n_juego,
       "intento": intentos,
       "error": error,
