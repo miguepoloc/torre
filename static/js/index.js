@@ -154,7 +154,7 @@ $.get(
 // JUEGO
 var juegox;
 $.get(
-  '/api/jugador/',
+  '/api/ultimo/',
   function (data) {
     for (let index = 0; index < data.length; index++) {
       data[index].nombre = data[index].nombre.toUpperCase();
@@ -350,7 +350,8 @@ $(function () {
     let fd = new Date(f_dif);
     // Variable para controlar la fecha del último intento
     let fu;
-    if (c_fecha.length == 0) {
+    console.log(c_fecha);
+    if ((c_fecha.length == 0) || (c_fecha[0] == null)) {
       fu = fd;
     }
     else {
