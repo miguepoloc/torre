@@ -396,6 +396,10 @@ $(function () {
 
     $("#vidas").html(htmlx);
 
+    if (n_juego >= 5) {
+      console.log("Jugando con 4");
+      numberOfHoops = 4;
+    }
     // Se le asignan los datos a la torre 1
     $("#tower1").data("data", {
       // Posicionado a la izquierda
@@ -423,7 +427,13 @@ $(function () {
     }
 
     if (intentos <= 5) {
-      startGame(lv);
+      if (n_juego >= 5) {
+        console.log("Jugando con 4");
+        startGame(4);
+      }
+      else {
+        startGame(lv);
+      }
     }
     else {
       sin_intentos();
@@ -566,7 +576,13 @@ $(function () {
     }
 
     if (intentos <= 5) {
-      startGame(lv);
+      if (n_juego >= 5) {
+        console.log("Jugando con 4");
+        startGame(4);
+      }
+      else {
+        startGame(lv);
+      }
     }
     else {
       sin_intentos();
@@ -580,21 +596,21 @@ $(function () {
 // Función para saber que ganó
 function validarVictoria(level, jugadas) {
   // Variable que almacena el número de aros
-  let aros = 3;
-  level = "tres";
-  // La forma de ganar según los diferentes niveles
-  if (level == "uno") aros = 1;
-  else if (level == "dos") aros = 2;
-  else if (level == "tres") aros = 3;
-  else if (level == "cuatro") aros = 4;
-  else if (level == "cinco") aros = 5;
-  else if (level == "seis") aros = 6;
-  else if (level == "siete") aros = 7;
-  else aros = 8;
+  // let aros = 3;
+  // level = "tres";
+  // // La forma de ganar según los diferentes niveles
+  // if (level == "uno") aros = 1;
+  // else if (level == "dos") aros = 2;
+  // else if (level == "tres") aros = 3;
+  // else if (level == "cuatro") aros = 4;
+  // else if (level == "cinco") aros = 5;
+  // else if (level == "seis") aros = 6;
+  // else if (level == "siete") aros = 7;
+  // else aros = 8;
   // Almacena la cantidad de aros que tiene la torre 3
   const elementsT3 = $("#tower3").data("data").elements.length;
   // Si la cantidad de aros es igual a los aros escogidos por el usuario
-  if (elementsT3 == aros) {
+  if (elementsT3 == level) {
     // Detiene el conteo del tiempo
     clearInterval(control);
     // Desactiva el movimiento de los aros
@@ -602,7 +618,7 @@ function validarVictoria(level, jugadas) {
     // Espera un tiempo para decir que ganó
     setTimeout(function () {
       // Llama a la función win después de ese tiempo
-      win(jugadas, level);
+      win(jugadas);
     }, 500);
   }
 }
@@ -628,6 +644,7 @@ function win(jugadas) {
 // ---------------------------- Explicación del juego -------------------
 // Función del inicio del juego
 function startGame(level) {
+  console.log(level);
   // Muestra el nombre del usuario
   $("#user").html("Hola " + usuario.split(" ", 1));
   document.getElementById('return').setAttribute('href', '/data/' + usuario_cod);
