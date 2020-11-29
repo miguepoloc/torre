@@ -549,6 +549,10 @@ $(function () {
     $("#vidas").html(htmlx);
 
 
+    if (n_juego >= 5) {
+      console.log("Jugando con 4");
+      numberOfHoops = 4;
+    }
     // Se le asignan los datos a la torre 1
     $("#tower1").data("data", {
       // Posicionado a la izquierda
