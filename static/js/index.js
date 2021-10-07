@@ -176,7 +176,7 @@ var audio = document.getElementById("audio");
 // Función principal
 $(function () {
   // Variable que guarda la cantidad de aros seleccionados
-  var lv = 3;
+  var lv = 4;
 
   // Cuando está en Pausa y se da click en el Botón de volver
   $("#resume").click(function () {
