@@ -19,7 +19,7 @@ var hoopsPerLevel = {
   ocho: 8
 };
 
-var numberOfHoops = 3;
+var numberOfHoops = 4; //Dice cuántos aros usará inicialmente
 
 // Variable de control de tiempo
 let control;
@@ -136,6 +136,7 @@ $.ajaxSetup({
 var lista_children = [];
 var lista_codigo = [];
 var lista_id = [];
+var lista_aros = [];
 
 
 $.get(
@@ -146,6 +147,7 @@ $.get(
       lista_children.push(data[q].nombre.toUpperCase())
       lista_codigo.push(data[q].codigo.toUpperCase())
       lista_id.push(data[q].id)
+      lista_aros.push(data[q].aros)
 
     }
   }
