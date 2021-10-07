@@ -44,7 +44,7 @@ class UltimoDato(models.Model):
 
 
 class Children(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True, )
     vinculador = models.CharField(max_length=200)
     nombre = models.CharField(max_length=200)
     codigo = models.CharField(max_length=200)
