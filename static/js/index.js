@@ -19,7 +19,7 @@ var hoopsPerLevel = {
   ocho: 8
 };
 
-var numberOfHoops = 4; //Dice cuántos aros usará inicialmente
+var numberOfHoops = 3; //Dice cuántos aros usará inicialmente
 
 // Variable de control de tiempo
 let control;
@@ -176,7 +176,7 @@ var audio = document.getElementById("audio");
 // Función principal
 $(function () {
   // Variable que guarda la cantidad de aros seleccionados
-  var lv = 4;
+  var lv = 3;
 
   // Cuando está en Pausa y se da click en el Botón de volver
   $("#resume").click(function () {
