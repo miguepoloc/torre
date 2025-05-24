@@ -82,11 +82,14 @@ WSGI_APPLICATION = 'torre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'torre',
-        'USER': 'admin',
-        'PASSWORD': 'Contrasena1!',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_OtKCOVlMqCiYhDQ_4pk',
+        'HOST': 'torre-miguepoloc.h.aivencloud.com',
+        'PORT': '16149',
+        'OPTIONS': {
+            'options': '-c timezone=UTC',
+        },
     }
 }
 
